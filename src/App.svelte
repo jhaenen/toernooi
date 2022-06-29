@@ -1,17 +1,17 @@
 <script lang="ts">
-    import page from 'page';
+    import Router from 'svelte-spa-router';
 
     import Home from '@/routes/home.svelte';
     import Results from '@/routes/results.svelte';
 
     let current = Home;
 
-    page('/', () => {current = Home;});
-    page('/results', () => {current = Results;});
-
-    page.start();
+    const routes = {
+        '/': Home,
+        '/results': Results,
+    };
 </script>
 
 <main>
-    <svelte:component this={current} />
+    <Router {routes}/>
 </main>
