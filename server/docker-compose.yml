@@ -1,0 +1,8 @@
+version: '3'
+services:
+  php-apache:
+    build: './php-apache'
+    ports:
+      - "4000:80"
+    volumes:
+      - ./php/:/var/www/html
