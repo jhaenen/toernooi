@@ -4,6 +4,6 @@ RUN apt-get update; \
 
 RUN docker-php-ext-install mysqli
 
-COPY demo.apache.conf /usr/local/apache2/conf/demo.apache.conf
-RUN echo "Include /usr/local/apache2/conf/demo.apache.conf" \
-    >> /usr/local/apache2/conf/httpd.conf
+COPY cors.conf /etc/apache2/conf-enabled/cors.conf
+RUN a2enmod headers; \
+    service apache2 restart;
