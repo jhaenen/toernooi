@@ -6,8 +6,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Inter var"', ...defaultTheme.fontFamily.sans],
+        sans: ['"Lato"', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'primary': '#455DB1',
+      },
+      screens: {
+        'mi': '400px',
+      }
     },
   },
   plugins: [],
