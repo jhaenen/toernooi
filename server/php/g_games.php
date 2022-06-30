@@ -1,5 +1,5 @@
 <?php
-    $host = 'wolleserver.local:4001';
+    $host = '192.168.2.210:4001';
     $user = 'root';
     $pass = 'root';
     $db = 'toernooi_das';
@@ -9,8 +9,20 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
+
+    $poule_id = null;
+
+    if(isset($_GET['p'])) { 
+        $poule_id = $_GET['p'];
+    }    
+
+    $sql = "";
+    if ($poule_id == null) {
+        $sql = "SELECT * FROM toernooi_wed_name ORDER BY poule_id ASC, time ASC; ";
+    } else {
+        $sql = "SELECT * FROM toernooi_wed_name WHERE poule_id = " . $poule_id . " ORDER BY time ASC; ";
+    }
     
-    $sql = "SELECT * FROM toernooi_wed_name ORDER BY poule_id ASC, time ASC; ";
     $result = $conn->query($sql);
 
     $games = array();
@@ -40,9 +52,10 @@
 
             $games[$index]->time = $row["time"];
         }
-    } else {
-        echo "0 results";
     }
+    // } else {
+    //     echo "0 results";
+    // }
 
     echo(json_encode($games));
 

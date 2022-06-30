@@ -1,5 +1,5 @@
 <?php
-    $host = 'wolleserver.local:4001';
+    $host = '192.168.2.210:4001';
     $user = 'root';
     $pass = 'root';
     $db = 'toernooi_das';
@@ -9,22 +9,48 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
-    
-    $sql = "SELECT * FROM toernooi_poules";
-    $result = $conn->query($sql);
 
-    $poules = array();
+    $poule_id = null;
 
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $poules[] = $row;
+    if(isset($_GET['p'])) { 
+        $poule_id = $_GET['p'];
+    }    
+
+
+    $poules = null;
+
+    if ($poule_id == null) {
+        $sql = "SELECT * FROM toernooi_poules";
+        $result = $conn->query($sql);
+
+        $poules = array();
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $poules[] = row_to_obj($row);
+            }
         }
     } else {
-        echo "0 results";
+        $sql = "SELECT * FROM toernooi_poules WHERE id = " . $poule_id;
+
+        $result = $conn->query($sql);
+
+        $poules = new \stdClass();
+
+        if ($result->num_rows > 0) {
+            $poules = row_to_obj($result->fetch_assoc());
+        }
     }
 
     echo(json_encode($poules));
 
     $conn->close();
+
+    function row_to_obj($row) {
+        $obj = new \stdClass();
+        $obj->id = intval($row["id"]);
+        $obj->name = $row["name"];
+        return $obj;
+    }
 ?>
