@@ -7,6 +7,6 @@
 <template>
     <div class="flex flex-col items-center">
         <div class="mb-0.5 sm:hidden"><i class="fa-solid {icon} fa-lg"></i></div>
-        <span>{label}</span>
+        <span class="font-bold">{label}</span>
     </div>
 </template>
