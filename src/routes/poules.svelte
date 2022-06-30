@@ -9,8 +9,10 @@
     let error = false;
 
     onMount(async () => {
+        const server = import.meta.env.VITE_SERVER_URL;
+
         try {
-            const response = await fetch("http://192.168.2.11:4000/g_poules.php");
+            const response = await fetch(server + "g_poules.php");
             poules = await response.json();
         } catch (err) {
             error = true;
