@@ -5,9 +5,9 @@
 
 <main>
     <div class="flex flex-col items-center sm:items-start sm:text-left">
-        <h1 class="m-4 font-light text-5xl">DAS toernooi</h1>
+        <h1 class="m-4 text-[12vw] leading-none font-light mi:text-5xl">DAS toernooi</h1>
 
-        <img class="max-h-80 sm:hidden" src={logo} alt="DAS logo"/>
+        <img class="w-[80vw] max-h-80 mi:w-auto sm:hidden" src={logo} alt="DAS logo"/>
         <!-- <a href="#/results">Resultaten</a> -->
 
         <div class="m-3">

@@ -16,23 +16,30 @@
     }
 
     let games: Array<Game> = [];
-    
+
+    let error = false;
+
     onMount(async () => {
-        const response = await fetch("http://localhost:4000/g_games.php");
-        const data = await response.json();
-        games = data;
+        try {
+            const response = await fetch("http://192.168.2.11:4000/g_games.php");
+            games = await response.json();
+            error = false;
+        } catch (err) {
+            error = true;
+            console.error(err);
+        }
     });
 
 </script>
 
 <main>
     <div class="flex flex-col items-center sm:items-start sm:text-left">
-        <h1 class="font-thin text-5xl">Resultaten</h1>
+        <h1 class="m-4 text-[12vw] leading-none font-thin mi:text-5xl">Resultaten</h1>
 
         {#each games as game (game.id)}
             <Result team1={game.team1} team2={game.team2}/>
         {:else}
-            <div class="fixed top-[40%] sm:static"><Loader/></div>
+            <div class="fixed top-[40%] sm:left-1/2"><Loader {error}/></div>
         {/each}
     </div>
 </main>

@@ -6,11 +6,16 @@
 
     let poules: Array<Poule> = [];
 
+    let error = false;
+
     onMount(async () => {
-        const response = await fetch("http://localhost:4000/g_poules.php");
-        const data = await response.json();
-        poules = data;
-        console.log(poules);
+        try {
+            const response = await fetch("http://192.168.2.11:4000/g_poules.php");
+            poules = await response.json();
+        } catch (err) {
+            error = true;
+            console.error(err);
+        }
     });
 </script>
 
@@ -21,7 +26,7 @@
         {#each poules as poule (poule.id)}
             <a class="m-4 text-2xl font-bold" href="#/poules/{poule.id}">{poule.name}</a>
         {:else}
-            <div class="fixed top-[40%] sm:static"><Loader/></div>
+            <div class="fixed top-[40%] sm:left-1/2"><Loader {error}/></div>
         {/each}
     </div>
 </template>
