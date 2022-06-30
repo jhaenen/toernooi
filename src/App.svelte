@@ -20,7 +20,7 @@
 </script>
 
 <main>
-    <div class="fixed bottom-0 right-0 left-0 sm:static">
+    <div class="fixed h-[82px] bottom-0 w-full m-0 p-0 sm:static z-10">
         <nav class="flex justify-evenly sm:justify-start bg-primary text-white py-4 sm:p3 flex-wrap">
             <a href="#/" class="hidden h-12 w-12 mx-4 sm:block"><img src={logo} alt="Svelte Logo"/></a>
             <a href="#/" class="px-4 sm:py-3 sm:px-4"><NavButton label="Home" icon="fa-house"/></a>
@@ -30,5 +30,5 @@
         </nav>
     </div>
     
-    <div class="m-1"><Router {routes}/></div>
+    <div class="p-1 absolute top-0 bottom-[78px] overflow-y-scroll w-full"><Router {routes}/></div>
 </main>
