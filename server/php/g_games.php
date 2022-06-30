@@ -21,18 +21,18 @@
             $games[] = new \stdClass();
             $index = count($games) - 1;
 
-            $games[$index]->id = intval($row["ID"]);
+            $games[$index]->id = intval($row["id"]);
 
             $games[$index]->poule = new \stdClass();
-            $games[$index]->poule->id = intval($row["poule_ID"]);
+            $games[$index]->poule->id = intval($row["poule_id"]);
             $games[$index]->poule->name = $row["poule_name"];
 
             $games[$index]->team1 = new \stdClass();
-            $games[$index]->team1->id = intval($row["team1_ID"]);
+            $games[$index]->team1->id = intval($row["team1_id"]);
             $games[$index]->team1->name = $row["team1_name"];
 
             $games[$index]->team2 = new \stdClass();
-            $games[$index]->team2->id = intval($row["team2_ID"]);
+            $games[$index]->team2->id = intval($row["team2_id"]);
             $games[$index]->team2->name = $row["team2_name"];
 
             $games[$index]->team1->score = intval($row["score1"]);
