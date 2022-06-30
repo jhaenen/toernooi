@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import type { Poule } from "@/types";
 
-    import Loader from "@/view/load-ball.svelte";
+    import Loader from "@/components/load-ball.svelte";
 
     let poules: Array<Poule> = [];
 

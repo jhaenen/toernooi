@@ -1,19 +1,10 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import type { TeamResult } from "@/types";
+    import type { Game } from "@/types";
 
-    import Result from "@/view/result.svelte";
+    import Result from "@/components/result.svelte";
 
-    import Loader from "@/view/load-ball.svelte";
-
-    interface Game {
-        id: number;
-        poule_id: number;
-        poule_name: string;
-        team1: TeamResult;
-        team2: TeamResult;
-        time: string;
-    }
+    import Loader from "@/components/load-ball.svelte";
 
     let games: Array<Game> = [];
 

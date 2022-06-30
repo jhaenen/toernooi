@@ -11,3 +11,11 @@ export interface Team {
 export interface TeamResult extends Team {
     score: number;
 }
+
+export interface Game {
+    id: number;
+    poule: Poule;
+    team1: TeamResult;
+    team2: TeamResult;
+    time: string;
+}
