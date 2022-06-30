@@ -10,7 +10,7 @@
         die("Connection failed: " . $conn->connect_error);
     } 
     
-    $sql = "SELECT * FROM toernooi_wed_name";
+    $sql = "SELECT * FROM toernooi_wed_name ORDER BY poule_id ASC, time ASC; ";
     $result = $conn->query($sql);
 
     $games = array();
