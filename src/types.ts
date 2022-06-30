@@ -19,3 +19,16 @@ export interface Game {
     team2: TeamResult;
     time: string;
 }
+
+export interface Stats {
+    id: number;
+    name: string;
+    poule_id: number;
+    played: number;
+    points: number;
+    won: number;
+    lost: number;
+    score_for: number;
+    score_against: number;
+    score_diff: number;
+}

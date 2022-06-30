@@ -3,16 +3,18 @@
 
     import Home from '@/routes/home.svelte';
     import Poules from '@/routes/poules.svelte';
+    import PouleStats from '@/routes/poule_stats.svelte';
     import Schema from '@/routes/schema.svelte';
     import NotFound from '@/routes/404.svelte';
 
-    import NavButton from '@/view/nav-button.svelte';
+    import NavButton from '@/components/nav-button.svelte';
     import logo from "@/assets/logo.webp";
 
     const routes = {
         '/': Home,
         '/schema': Schema,
         '/poules': Poules,
+        '/poules/:id': PouleStats,
         '*': NotFound,
     };
 </script>
