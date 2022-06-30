@@ -1,8 +1,10 @@
 <?php
-    $host = '192.168.2.210:4001';
-    $user = 'root';
-    $pass = 'root';
-    $db = 'toernooi_das';
+    $ini = parse_ini_file("./env.ini");
+
+    $host = $ini["DB_HOST"];
+    $user = $ini["DB_USER"];
+    $pass = $ini["DB_PASS"];
+    $db = $ini["DB_NAME"];
 
     $conn = new mysqli($host, $user, $pass, $db);
     
