@@ -30,5 +30,5 @@
         </nav>
     </div>
     
-    <div class="p-1 absolute top-0 bottom-[78px] overflow-y-scroll w-full"><Router {routes}/></div>
+    <div class="p-1 absolute top-0 bottom-[78px] overflow-y-scroll w-full sm:static"><Router {routes}/></div>
 </main>
