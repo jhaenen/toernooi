@@ -26,7 +26,7 @@
             <tbody>
                 {#each standings as team (team.id)}
                     <tr>
-                        <td class="px-2 text-center ">{team.name}</td>
+                        <td class="px-2 text-center">{team.name}</td>
                         <td class="px-2 text-center">{team.played}</td>
                         <td class="px-2 text-center">{team.points}</td>
                         <td class="px-2 text-center" class:hidden={!details}>{team.won}</td>
