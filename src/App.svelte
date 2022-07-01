@@ -1,13 +1,18 @@
 <script lang="ts">
+    // Framework
     import Router from 'svelte-spa-router';
 
+    // Routes
     import Home from '@/routes/home.svelte';
     import Poules from '@/routes/poules.svelte';
     import PouleStats from '@/routes/poule_stats.svelte';
     import Schema from '@/routes/schema.svelte';
     import NotFound from '@/routes/404.svelte';
 
+    // Components
     import NavButton from '@/components/nav-button.svelte';
+
+    // Assets
     import logo from "@/assets/logo.webp";
 
     const routes = {
@@ -20,6 +25,7 @@
 </script>
 
 <main>
+    <!-- Navigation bar -->
     <div class="fixed h-[82px] bottom-0 w-full m-0 p-0 sm:static z-10">
         <nav class="flex justify-evenly sm:justify-start bg-primary text-white py-4 sm:p3 flex-wrap">
             <a href="#/" class="hidden h-12 w-12 mx-4 sm:block"><img src={logo} alt="Svelte Logo"/></a>
@@ -30,5 +36,6 @@
         </nav>
     </div>
     
+    <!-- Main content -->
     <div class="p-1 absolute top-0 bottom-[78px] overflow-y-scroll w-full sm:static"><Router {routes}/></div>
 </main>

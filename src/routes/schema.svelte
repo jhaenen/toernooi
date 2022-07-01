@@ -1,9 +1,12 @@
 <script lang="ts">
+    // Framework
     import { onMount } from "svelte";
+
+    // Types
     import type { Game } from "@/types";
 
+    // Components
     import Result from "@/components/result.svelte";
-
     import Loader from "@/components/load-ball.svelte";
 
     let games: Array<Game> = [];
@@ -13,6 +16,7 @@
     onMount(async () => {
         const server = import.meta.env.VITE_SERVER_URL;
 
+        // Get games from server
         try {
             const response = await fetch(server + "g_games.php");
             games = await response.json();
@@ -27,8 +31,10 @@
 
 <main>
     <div class="flex flex-col items-center sm:items-start sm:text-left">
+        <!-- Title -->
         <h1 class="m-4 text-[12vw] leading-none font-thin mi:text-5xl">Resultaten</h1>
 
+        <!-- Game list -->
         {#each games as game (game.id)}
             <Result team1={game.team1} team2={game.team2}/>
         {:else}

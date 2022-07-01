@@ -27,8 +27,7 @@
 
     let el: HTMLElement;
 
-    function overflowCheck() { 
-        console.log("overflowCheck");
+    function overflowCheck() {
         if (el != undefined) {
             overflown = el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth;
         } else {

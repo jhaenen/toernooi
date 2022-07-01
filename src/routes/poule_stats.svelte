@@ -1,12 +1,14 @@
 <script lang="ts">
+    // Framework
     import { onMount } from "svelte";
 
+    // Types
     import type { Game, Poule, Stats } from "@/types";
 
+    // Components
     import Loader from "@/components/load-ball.svelte";
     import Result from "@/components/result.svelte";
-    import Toggle from "@/components/toggle.svelte";
-import Standings from "@/components/standings.svelte";
+    import Standings from "@/components/standings.svelte";
 
     let poule: Poule;
     let games: Array<Game> = [];
@@ -16,11 +18,11 @@ import Standings from "@/components/standings.svelte";
     let loaded = false;
 
     export let params = {id: -1};
-    let details = false;
 
     onMount(async () => {
         const server = import.meta.env.VITE_SERVER_URL;
 
+        // Get stats from server
         try {
             const g_resp = await fetch(server + "g_games.php?p=" + params.id);
             games = await g_resp.json();
@@ -42,6 +44,7 @@ import Standings from "@/components/standings.svelte";
 <template>
     <div class="flex flex-col items-center sm:items-start sm:text-left m-4">
         {#if loaded && !error}
+            <!-- Title -->
             <h1 class="my-2 text-[12vw] leading-none font-light text-center mi:text-5xl">Poule: {poule.name}</h1>
 
             <!-- Poule standings -->
