@@ -45,11 +45,11 @@ import Standings from "@/components/standings.svelte";
             <h1 class="my-2 text-[12vw] leading-none font-light text-center mi:text-5xl">Poule: {poule.name}</h1>
 
             <!-- Poule standings -->
-            <h2 class="m-4 font-light text-2xl">Stand</h2>
+            <h2 class="m-4 font-light text-3xl">Stand</h2>
             <Standings standings={stats}/>
 
             <!-- Poule games -->
-            <h2 class="m-4 font-light text-2xl">Wedstrijden</h2>
+            <h2 class="m-4 font-light text-3xl">Wedstrijden</h2>
             {#each games as game (game.id)}
                 <Result team1={game.team1} team2={game.team2}/>
             {:else}
