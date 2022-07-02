@@ -1,6 +1,6 @@
 <script lang="ts">
     // Assets
-    import logo from "@/assets/logo.webp";
+    import logo from "@/assets/logo_lq.webp";
 </script>
 
 <main>
