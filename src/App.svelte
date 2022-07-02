@@ -14,6 +14,10 @@
 
     // Assets
     import logo from "@/assets/logo.webp";
+    import home_icon from "@/assets/icons/house.svg";
+    import poules_icon from "@/assets/icons/basketball.svg";
+    import schedule_icon from "@/assets/icons/newspaper.svg";
+    import org_icon from "@/assets/icons/org.svg";
 
     const routes = {
         '/': Home,
@@ -22,17 +26,19 @@
         '/poules/:id': PouleStats,
         '*': NotFound,
     };
+
+    const icon_color = '#ffffff';
 </script>
 
 <main>
     <!-- Navigation bar -->
-    <div class="fixed h-[82px] bottom-0 w-full m-0 p-0 sm:static z-10">
-        <nav class="flex justify-evenly sm:justify-start bg-primary text-white py-4 sm:p3 flex-wrap">
+    <div class="fixed bottom-0 w-full m-0 p-0 sm:static z-10">
+        <nav class="flex h-[82px] justify-evenly sm:justify-start bg-primary text-white py-4 sm:p3 flex-wrap">
             <a href="#/" class="hidden h-12 w-12 mx-4 sm:block"><img src={logo} alt="Svelte Logo"/></a>
-            <a href="#/" class="px-4 sm:py-3 sm:px-4"><NavButton label="Home" icon="fa-house"/></a>
-            <a href="#/poules" class="px-4 sm:py-3 sm:px-4"><NavButton label="Poules" icon="fa-basketball"/></a>
-            <a href="#/schema" class="px-4 sm:py-3 sm:px-4"><NavButton label="Dagschema" icon="fa-newspaper"/></a>
-            <a href="#/org" class="hidden mi:block px-4 sm:py-3 sm:px-4"><NavButton label="Organizatie" icon="fa-address-card"/></a>
+            <a href="#/" class="px-4 sm:py-3 sm:px-4"><NavButton label="Home" icon={home_icon} color={icon_color}/></a>
+            <a href="#/poules" class="px-4 sm:py-3 sm:px-4"><NavButton label="Poules" icon={poules_icon} color={icon_color}/></a>
+            <a href="#/schema" class="px-4 sm:py-3 sm:px-4"><NavButton label="Dagschema" icon={schedule_icon} color={icon_color}/></a>
+            <a href="#/org" class="hidden mi:block px-4 sm:py-3 sm:px-4"><NavButton label="Organizatie" icon={org_icon} color={icon_color}/></a>
         </nav>
     </div>
     

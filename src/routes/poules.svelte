@@ -38,5 +38,7 @@
             <!-- Loader -->
             <div class="fixed top-[40%] sm:left-1/2"><Loader {error}/></div>
         {/each}
+
+        <Loader error={true} />
     </div>
 </template>
