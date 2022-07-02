@@ -20,7 +20,7 @@
 
     $sql = "";
     if ($poule_id == null) {
-        $sql = "SELECT * FROM toernooi_wed_name ORDER BY poule_id ASC, time ASC; ";
+        $sql = "SELECT * FROM toernooi_wed_name ORDER BY time ASC; ";
     } else {
         $sql = "SELECT * FROM toernooi_wed_name WHERE poule_id = " . $poule_id . " ORDER BY time ASC; ";
     }

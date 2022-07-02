@@ -54,7 +54,7 @@
             <!-- Poule games -->
             <h2 class="m-4 font-light text-3xl">Wedstrijden</h2>
             {#each games as game (game.id)}
-                <Result team1={game.team1} team2={game.team2}/>
+                <Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)}/>
             {:else}
                 <p>Geen Wedstrijden gepland.</p>
             {/each}

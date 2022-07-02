@@ -32,11 +32,11 @@
 <main>
     <div class="flex flex-col items-center sm:items-start sm:text-left">
         <!-- Title -->
-        <h1 class="m-4 text-[12vw] leading-none font-thin mi:text-5xl">Resultaten</h1>
+        <h1 class="m-4 text-[12vw] leading-none font-thin mi:text-5xl">Dagschema</h1>
 
         <!-- Game list -->
         {#each games as game (game.id)}
-            <Result team1={game.team1} team2={game.team2}/>
+            <Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} poule={game.poule.name}/>
         {:else}
             <div class="fixed top-[40%] sm:left-1/2"><Loader {error}/></div>
         {/each}
