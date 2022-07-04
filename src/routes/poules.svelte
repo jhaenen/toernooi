@@ -36,7 +36,7 @@
             <a class="m-4 text-2xl font-bold" href="#/poules/{poule.id}">{poule.name}</a>
         {:else}
             <!-- Loader -->
-            <div class="fixed top-[40%] sm:left-1/2"><Loader {error}/></div>
+            <Loader {error}/>
         {/each}
     </div>
 </template>

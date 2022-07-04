@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-end h-[75px] w-fit">
+    <div class="flex flex-col items-center justify-end h-[75px] w-fit fixed top-[40%] left-1/2">
         {#if !error}
             <img class="animate-bounce h-10 w-10" src={ball} alt=""/>
             <span>Laden...</span>

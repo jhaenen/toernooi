@@ -38,7 +38,7 @@
         {#each games as game (game.id)}
             <Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} poule={game.poule.name}/>
         {:else}
-            <div class="fixed top-[40%] sm:left-1/2"><Loader {error}/></div>
+            <Loader {error}/>
         {/each}
     </div>
 </main>

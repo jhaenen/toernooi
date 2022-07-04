@@ -60,7 +60,7 @@
             {/each}
         {:else}
             <!-- Loader -->
-            <div class="fixed top-[40%] sm:left-1/2"><Loader {error}/></div>
+            <Loader {error}/>
         {/if}       
     </div>
 </template>

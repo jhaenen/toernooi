@@ -1,16 +1,11 @@
 <script lang="ts">
     // Framework
     import Router from 'svelte-spa-router';
-
-    // Routes
-    import Home from '@/routes/home.svelte';
-    import Poules from '@/routes/poules.svelte';
-    import PouleStats from '@/routes/poule_stats.svelte';
-    import Schema from '@/routes/schema.svelte';
-    import NotFound from '@/routes/404.svelte';
+    import { wrap } from 'svelte-spa-router/wrap';
 
     // Components
     import NavButton from '@/components/nav-button.svelte';
+    import Loader from '@/components/load-ball.svelte';
 
     // Assets
     import logo from "@/assets/logo.webp";
@@ -19,12 +14,14 @@
     import schedule_icon from "@/assets/icons/newspaper.svg";
     import org_icon from "@/assets/icons/org.svg";
 
+
+    // Routes
     const routes = {
-        '/': Home,
-        '/schema': Schema,
-        '/poules': Poules,
-        '/poules/:id': PouleStats,
-        '*': NotFound,
+        '/': wrap({asyncComponent: () => import('@/routes/home.svelte'), loadingComponent: Loader}),
+        '/schema': wrap({asyncComponent: () => import('@/routes/schema.svelte'), loadingComponent: Loader}),
+        '/poules': wrap({asyncComponent: () => import('@/routes/poules.svelte'), loadingComponent: Loader}),
+        '/poules/:id': wrap({asyncComponent: () => import('@/routes/poule_stats.svelte'), loadingComponent: Loader}),
+        '*': wrap({asyncComponent: () => import('@/routes/404.svelte'), loadingComponent: Loader}),
     };
 
     const icon_color = '#ffffff';
