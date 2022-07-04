@@ -17,7 +17,7 @@
 
         // Get poules from server
         try {
-            const response = await fetch(server + "g_poules.php");
+            const response = await fetch(server + "poules");
             poules = await response.json();
         } catch (err) {
             error = true;

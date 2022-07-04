@@ -8,7 +8,7 @@
     import Loader from '@/components/load-ball.svelte';
 
     // Assets
-    import logo from "@/assets/logo.webp";
+    import logo from "@/assets/logo_lq.webp";
     import home_icon from "@/assets/icons/house.svg";
     import poules_icon from "@/assets/icons/basketball.svg";
     import schedule_icon from "@/assets/icons/newspaper.svg";

@@ -6,4 +6,5 @@ RUN docker-php-ext-install mysqli
 
 COPY cors.conf /etc/apache2/conf-enabled/cors.conf
 RUN a2enmod headers; \
+    a2enmod rewrite; \
     service apache2 restart;

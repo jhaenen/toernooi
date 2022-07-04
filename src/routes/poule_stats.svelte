@@ -24,13 +24,13 @@
 
         // Get stats from server
         try {
-            const g_resp = await fetch(server + "g_games.php?p=" + params.id);
+            const g_resp = await fetch(server + "games/" + params.id);
             games = await g_resp.json();
 
-            const p_resp = await fetch(server + "g_poules.php?p=" + params.id);
+            const p_resp = await fetch(server + "poules/" + params.id);
             poule = await p_resp.json();
 
-            const s_resp = await fetch(server + "g_stats.php?p=" + params.id);
+            const s_resp = await fetch(server + "stats/" + params.id);
             stats = await s_resp.json();
 
             loaded = true;

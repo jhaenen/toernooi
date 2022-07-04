@@ -9,7 +9,7 @@
         <h1 class="m-4 text-[12vw] leading-none font-light mi:text-5xl">DAS toernooi</h1>
 
         <!-- Logo -->
-        <img class="w-[80vw] m-h-80 mi:w-80 sm:hidden" src={logo} alt="DAS logo"/>
+        <img class="w-[80%] h-auto max-w-xs sm:hidden" src={logo} alt="DAS logo" width="320" height="320"/>
 
         <!-- Main text -->
         <div class="m-3">

@@ -18,7 +18,7 @@
 
         // Get games from server
         try {
-            const response = await fetch(server + "g_games.php");
+            const response = await fetch(server + "games");
             games = await response.json();
             error = false;
         } catch (err) {
