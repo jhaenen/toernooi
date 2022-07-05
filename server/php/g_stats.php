@@ -20,9 +20,9 @@
 
     $sql = "";
     if ($poule_id == null) {
-        $sql = "SELECT * FROM toernooi_stats ORDER BY poule_id ASC, points DESC; ";
+        $sql = "SELECT * FROM toernooi_stats ORDER BY poule_id ASC, points DESC, score_diff DESC;";
     } else {
-        $sql = "SELECT * FROM toernooi_stats WHERE poule_id = " . $poule_id . " ORDER BY points DESC; ";
+        $sql = "SELECT * FROM toernooi_stats WHERE poule_id = " . $poule_id . " ORDER BY points DESC, score_diff DESC; ";
     }
     
     $result = $conn->query($sql);
