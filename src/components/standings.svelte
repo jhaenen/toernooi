@@ -40,7 +40,7 @@
 
 <template>
     <div class="overflow-x-scroll overflow-y-visible p-0 w-full" bind:this={el}>
-        <table class="w-max my-0.5 mx-auto flex-shrink-0 text-center sm:m-0 border-separate border-spacing-0">
+        <table class="w-max my-0.5 mx-auto flex-shrink-0 text-center lg:m-0 border-separate border-spacing-0">
             <thead>
                 <tr>
                     <th class="px-2 sticky left-0 bg-white border-r-2 border-b-2 m-">Team</th>
@@ -57,7 +57,7 @@
                 {#each standings as team (team.id)}
                     <tr>
                         <th class="px-2 text-left sticky left-0 bg-white border-r-2">{team.name}</th>
-                        <td class="px-2">{team.points}</td>
+                        <td class="px-2 font-black">{team.points}</td>
                         <td class="px-2">{team.played}</td>
                         <td class="px-2 bg-white" class:hidden={!details}>{team.won}</td>
                         <td class="px-2" class:hidden={!details}>{team.lost}</td>

@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <div class="border-2 rounded-lg m-3 p-2 text-center max-w-sm w-fit">
+    <div class="border-2 rounded-lg p-2 text-center max-w-sm w-fit">
         <div class="flex justify-between items-center">
             <div class="w-[35vw] mi:w-40">
                 <div class="text-[5vw] m-1 mi:text-xl font-bold">{team1.name}</div>

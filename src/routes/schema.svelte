@@ -30,9 +30,9 @@
 </script>
 
 <main>
-    <div class="flex flex-col items-center sm:items-start sm:text-left">
+    <div class="flex flex-col items-center gap-y-5 m-4">
         <!-- Title -->
-        <h1 class="m-4 text-[12vw] leading-none font-thin mi:text-5xl">Dagschema</h1>
+        <h1 class="my-2 text-[12vw] leading-none font-thin mi:text-5xl">Dagschema</h1>
 
         <!-- Game list -->
         {#each games as game (game.id)}

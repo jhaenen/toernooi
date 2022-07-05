@@ -27,13 +27,13 @@
 </script>
 
 <template>
-    <div class="flex flex-col items-center sm:items-start sm:text-left">
+    <div class="flex flex-col items-center m-4 gap-y-8">
         <!-- Title -->
-        <h1 class="m-4 font-light text-5xl">Poules</h1>
+        <h1 class="my-2 font-light text-5xl">Poules</h1>
 
         <!-- Poule list -->
         {#each poules as poule (poule.id)}
-            <a class="m-4 text-2xl font-bold" href="#/poules/{poule.id}">{poule.name}</a>
+            <a class="text-2xl font-bold" href="#/poules/{poule.id}">{poule.name}</a>
         {:else}
             <!-- Loader -->
             <Loader {error}/>
