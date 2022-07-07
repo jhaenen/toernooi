@@ -3,7 +3,7 @@
     import { onMount } from "svelte";
 
     // Types
-    import type { Game } from "@/types";
+    import type { Game } from "@/types/types";
 
     // Components
     import Result from "@/components/result.svelte";

@@ -3,7 +3,7 @@
     import { onMount } from "svelte";
 
     // Types
-    import type { Game, Poule, Stats } from "@/types";
+    import type { Game, Poule, Stats } from "@/types/types";
 
     // Components
     import Loader from "@/components/load-ball.svelte";

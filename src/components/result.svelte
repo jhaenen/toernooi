@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { TeamResult } from "@/types";
+    import type { TeamResult } from "@/types/types";
 
     export let team1: TeamResult; 
     export let team2: TeamResult;

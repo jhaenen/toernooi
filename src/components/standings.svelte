@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import type { Stats } from "@/types";
+    import type { Stats } from "@/types/types";
 
     import Toggle from "@/components/toggle.svelte";
 
