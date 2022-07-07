@@ -9,18 +9,20 @@ function resolveDir(relativePath: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    svelte(),
-    viteStaticCopy({
-      targets: [
-        { src: './server/php/*.php', dest: 'server' },
-        { src: './server/php/prod/env.ini', dest: 'server' },
-      ]
-    }),
-  ],
-  resolve: {
-    alias: {
-      '@': resolveDir('./src'),
+    plugins: [
+      svelte(),
+      viteStaticCopy({
+        targets: [
+          { src: './server/php/*.php', dest: 'server' },
+          { src: './server/php/prod/env.ini', dest: 'server' },
+          { src: './server/php/admin/*.php', dest: 'admin' },
+          { src: './server/php/admin/prod/*', dest: 'admin' },
+        ]
+      }),
+    ],
+    resolve: {
+      alias: {
+        '@': resolveDir('./src'),
+      },
     },
-  },
 })
