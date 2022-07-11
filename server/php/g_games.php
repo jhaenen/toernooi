@@ -53,6 +53,8 @@
             $games[$index]->team2->score = intval($row["score2"]);
 
             $games[$index]->time = $row["time"];
+
+            $games[$index]->court_num = $row["court_num"];
         }
     }
     // } else {

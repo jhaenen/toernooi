@@ -5,10 +5,12 @@
     export let team2: TeamResult;
     export let time = "00:00";
     export let poule = "";
+    export let court_num = 0;
 </script>
 
 <template>
     <div class="border-2 rounded-lg p-2 text-center max-w-sm w-fit">
+        <div class="text-xs font-bold mt-2" class:hidden={poule===""}>{poule}</div>
         <div class="flex justify-between items-center">
             <div class="w-[35vw] mi:w-40">
                 <div class="text-[5vw] m-1 mi:text-xl font-bold">{team1.name}</div>
@@ -25,6 +27,6 @@
                 <div class="text-[8vw] mi:text-4xl font-light">{team2.score}</div>
             </div>
         </div>
-        <div class="text-xs font-bold mt-2" class:hidden={poule===""}>{poule}</div>
+        <div class="text-xs font-bold my-2" class:hidden={court_num==0}>Veld {court_num}</div>
     </div>
 </template>

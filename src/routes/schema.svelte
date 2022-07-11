@@ -36,7 +36,7 @@
 
         <!-- Game list -->
         {#each games as game (game.id)}
-            <Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} poule={game.poule.name}/>
+            <Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} poule={game.poule.name} court_num={game.court_num}/>
         {:else}
             <Loader {error}/>
         {/each}

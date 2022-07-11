@@ -18,6 +18,7 @@ export interface Game {
     team1: TeamResult;
     team2: TeamResult;
     time: string;
+    court_num: number;
 }
 
 export interface Stats {
