@@ -42,10 +42,15 @@
         if (!isset($_GET['poule'])) {
             $sql = "SELECT * FROM toernooi_teams";
             $result = $conn->query($sql);
-            $poules = array();
+            $teams = array();
 
             while ($row = $result->fetch_assoc()) {
-                $poules[] = $row;
+                $teams[] = new \stdClass();
+                $index = count($teams) - 1;
+
+                $teams[$index]->id = intval($row["id"]);
+                $teams[$index]->name = $row["name"];
+                $teams[$index]->poule_id = intval($row["poule_id"]);
             }
 
             echo json_encode($poules);
@@ -77,7 +82,12 @@
             $teams = array();
 
             while ($row = $result->fetch_assoc()) {
-                $teams[] = $row;
+                $teams[] = new \stdClass();
+                $index = count($teams) - 1;
+
+                $teams[$index]->id = intval($row["id"]);
+                $teams[$index]->name = $row["name"];
+                $teams[$index]->poule_id = intval($row["poule_id"]);
             }
 
             echo json_encode($teams);
