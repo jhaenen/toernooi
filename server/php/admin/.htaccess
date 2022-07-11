@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteRule ^gen_games$ gen_games.php [L]
+RewriteRule ^poules$ poules.php [L]
+RewriteRule ^results$ results.php [L]
+RewriteRule ^teams$ teams.php [L]

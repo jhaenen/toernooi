@@ -25,4 +25,8 @@ export default defineConfig({
         '@': resolveDir('./src'),
       },
     },
+    server: {
+      port: 80,
+      host: true,
+    }
 })
