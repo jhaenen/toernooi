@@ -2,7 +2,7 @@
     // Allow methods PUT, PATCH, DELETE on OPTIONS request
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
         header('Access-Control-Allow-Origin: *');
-        header('Access-Control-Allow-Methods: PUT, PATCH, DELETE, OPTIONS');
+        header('Access-Control-Allow-Methods: GET, PUT, PATCH, DELETE, OPTIONS');
         header('Access-Control-Allow-Headers: Content-Type');
         header('Content-Type: application/json');
         header('Access-Control-Max-Age: 1728000');
@@ -11,8 +11,8 @@
         die();
     }
 
-    // Return method not allowed if not PUT, PATCH, DELETE
-    if ($_SERVER['REQUEST_METHOD'] != 'PUT' && $_SERVER['REQUEST_METHOD'] != 'PATCH' && $_SERVER['REQUEST_METHOD'] != 'DELETE') {
+    // Return method not allowed if not GET, PUT, PATCH, DELETE
+    if ($_SERVER['REQUEST_METHOD'] != 'GET' && $_SERVER['REQUEST_METHOD'] != 'PUT' && $_SERVER['REQUEST_METHOD'] != 'PATCH' && $_SERVER['REQUEST_METHOD'] != 'DELETE') {
         header('HTTP/1.0 405 Method Not Allowed');
         die();
     }
@@ -35,6 +35,54 @@
 
     // Decode body of request
     $request = json_decode(file_get_contents('php://input'));
+
+    // if method is GET
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        // If $_GET['poule'] is not set return all teams
+        if (!isset($_GET['poule'])) {
+            $sql = "SELECT * FROM toernooi_teams";
+            $result = $conn->query($sql);
+            $poules = array();
+
+            while ($row = $result->fetch_assoc()) {
+                $poules[] = $row;
+            }
+
+            echo json_encode($poules);
+        } else {
+            // Check if string $_GET['poule'] is an numeric value
+            if (!is_numeric($_GET['poule'])) {
+                header('HTTP/1.0 400 Bad Request');
+                die();
+            }
+
+            $poule = intval($_GET['poule']);
+
+
+            // Check if poule exists otherwise return bad request
+            $sql = "SELECT * FROM toernooi_poules WHERE id = " . $poule;
+            $result = $conn->query($sql);
+
+
+            // echo error of query
+
+            if ($result->num_rows == 0) {
+                header('HTTP/1.0 400 Bad Request');
+                die();
+            }
+
+            // Return teams of poule
+            $sql = "SELECT * FROM toernooi_teams WHERE poule_id = " . $poule;
+            $result = $conn->query($sql);
+            $teams = array();
+
+            while ($row = $result->fetch_assoc()) {
+                $teams[] = $row;
+            }
+
+            echo json_encode($teams);
+        }
+    }
 
     // if method is PUT
     if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
