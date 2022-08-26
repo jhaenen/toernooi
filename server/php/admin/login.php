@@ -3,10 +3,9 @@
 
     $realm = "Restricted area";
 
-    $user = "admin";
-    $pass = "root";
+    $login = parse_ini_file("./env.ini");
 
-    $session_dur_sec = 60;
+    $session_dur_sec = 600;
 
     function unauthorized() {
         header('HTTP/1.0 401 Unauthorized');
@@ -22,7 +21,14 @@
         if (!isset($_SERVER['PHP_AUTH_USER'])) {
             unauthorized();
         } else {
-            if($_SERVER['PHP_AUTH_USER'] == $user && $_SERVER['PHP_AUTH_PW'] == $pass) {
+            // Return bad request if the username or password is not set
+            if (!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])) {
+                header('HTTP/1.0 400 Bad Request');
+                die();
+            }
+            
+            // Check if the username and password are correct otherwise return unauthorized
+            if($_SERVER['PHP_AUTH_USER'] == $login['USER'] && $_SERVER['PHP_AUTH_PW'] == $login['PASS']) {
                 session_destroy();
                 session_start();
                 $_SESSION['expires'] = time() + $session_dur_sec;
@@ -31,6 +37,10 @@
                 unauthorized();
             }
         }
+        
+        die();
+    } else {
+        header('HTTP/1.0 400 Bad Request');
         die();
     }
 ?>

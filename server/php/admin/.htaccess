@@ -1,7 +1,17 @@
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+
+<FilesMatch "\.(ini)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
 RewriteEngine On
 
-RewriteRule ^gen_games$ gen_games.php [L]
-RewriteRule ^poules$ poules.php [L]
-RewriteRule ^results$ results.php [L]
-RewriteRule ^teams/([0-9]+)$ teams.php?id=$1 [L]
-RewriteRule ^teams$ teams.php [L]
+RewriteRule ^login$ login.php [L]
+RewriteRule ^logout$ logout.php [L]
+
+RewriteRule ^$ guard.php?page=index.html [L]
+RewriteRule ^html/$ guard.php?page=index.html [L]
+RewriteRule ^html/(.+).html$ guard.php?page=$1.html [L]
+RewriteRule ^html/(.+).js$ guard.php?page=$1.js [L]
+RewriteRule ^([^/\.]+)/?$ guard.php?page=$1 [L]

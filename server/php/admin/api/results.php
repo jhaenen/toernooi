@@ -1,4 +1,6 @@
 <?php
+    include "guard.php";
+
     // Allow PATCH method on OPTIONS request
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
         header('Access-Control-Allow-Methods: PATCH, OPTIONS');
@@ -17,7 +19,7 @@
     }
 
     // Connect to database
-    $ini = parse_ini_file("../env.ini");
+    $ini = parse_ini_file("../../env.ini");
 
     $host = $ini["DB_HOST"];
     $user = $ini["DB_USER"];

@@ -1,5 +1,5 @@
 <?php
-    $ini = parse_ini_file("./env.ini");
+    $ini = parse_ini_file("../env.ini");
 
     $host = $ini["DB_HOST"];
     $user = $ini["DB_USER"];

@@ -1,4 +1,6 @@
 <?php 
+    include "guard.php";
+
     // Allow methods PUT, PATCH, DELETE on OPTIONS request
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
         header('Access-Control-Allow-Origin: *');
@@ -18,7 +20,7 @@
     }
 
     // Connect to database
-    $ini = parse_ini_file("../env.ini");
+    $ini = parse_ini_file("../../env.ini");
 
     $host = $ini["DB_HOST"];
     $user = $ini["DB_USER"];
@@ -53,7 +55,7 @@
                 $teams[$index]->poule_id = intval($row["poule_id"]);
             }
 
-            echo json_encode($poules);
+            echo json_encode($teams);
         } else {
             // Check if string $_GET['poule'] is an numeric value
             if (!is_numeric($_GET['poule'])) {
