@@ -24,7 +24,7 @@
     } else {
         $sql = "SELECT * FROM toernooi_wed_name WHERE poule_id = " . $poule_id . " ORDER BY time ASC; ";
     }
-    
+
     $result = $conn->query($sql);
 
     $games = array();
@@ -55,6 +55,10 @@
             $games[$index]->time = $row["time"];
 
             $games[$index]->court_num = $row["court_num"];
+
+            $games[$index]->ref = new \stdClass();
+            $games[$index]->ref->id = $row["ref_id"];
+            $games[$index]->ref->name = $row["ref_name"];
         }
     }
     // } else {
