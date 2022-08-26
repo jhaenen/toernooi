@@ -262,18 +262,18 @@
             $pq_game = $t_pq_game;
         }
 
-        // // Perform the insert query
-        // $sql = substr($sql, 0, -1);
-        // $conn->query($sql);
+        // Perform the insert query
+        $sql = substr($sql, 0, -1);
+        $conn->query($sql);
 
-        // // Print query error
-        // if ($conn->error) {
-        //     echo "Error: " . $conn->error;
-        // }
+        // Print query error
+        if ($conn->error) {
+            echo "Error: " . $conn->error;
+        }
 
-        // // echo "<br>";
+        // echo "<br>";
 
-        // $conn->close();
+        $conn->close();
     } else {
         header("HTTP/1.0 400 Bad Request");
         die();
