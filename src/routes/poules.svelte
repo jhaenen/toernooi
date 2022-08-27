@@ -34,7 +34,10 @@
         <!-- Poule list -->
         <div class="flex flex-col items-center w-fit gap-y-6">
             {#each poules as poule (poule.id)}
-                <a class="border-2 p-3 rounded-lg border-slate-500 w-full text-center text-2xl font-bold" href="#/poules/{poule.id}">{poule.name}</a>
+                <a class="relative border-2 p-3 rounded-lg border-slate-500 w-full text-center text-2xl font-bold" href="#/poules/{poule.id}">
+                    {poule.name}
+                    <div class="absolute w-full h-1 bottom-0 left-0 -z-10" style={"background-color: " + poule.color}></div>
+                </a>
             {:else}
                 <!-- Loader -->
                 <Loader {error}/>

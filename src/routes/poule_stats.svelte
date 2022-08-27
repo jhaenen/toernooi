@@ -51,6 +51,8 @@
     let showScroll = false;
 
     function checkScroll() {
+        if (games.length == 0) return;
+
        // const now = new Date(Date.now());
        const now = new Date(2022, 9, 10, 13, 23);
 
@@ -68,10 +70,7 @@
                 cur_diff = diff;
                 currentGame = game;
             }
-        }
-
-        console.log(currentGame);
-        
+        }        
 
         const currentGame_el = document.getElementById("game" + currentGame.id);
         const bounding = currentGame_el.getBoundingClientRect();
@@ -101,7 +100,9 @@
     <div class="flex flex-col items-center m-4"><!-- lg:items-start lg:text-left -->
         {#if loaded && !error}
             <!-- Title -->
-            <h1 class="my-2 text-[12vw] leading-none font-light text-center mi:text-5xl lg:py-5 lg:w-full lg:bg-white lg:sticky lg:top-0">Poule: {poule.name}</h1>
+            <h1 class="text-[12vw] leading-none font-light text-center border-b-2 py-[5px] mi:text-5xl lg:py-5 lg:w-full lg:bg-white lg:sticky lg:top-0 sm:my-2 sm:border-b-0 sm:underline sm:underline-offset-[10px] sm:decoration-2" style={"text-decoration-color:" + poule.color + ";border-color:" + poule.color}>
+                Poule: {poule.name}
+            </h1>
 
             <div class="flex flex-col lg:flex-row-reverse gap-x-10 gap-y-4 m-4">
                 <div>

@@ -53,6 +53,7 @@
         $obj = new \stdClass();
         $obj->id = intval($row["id"]);
         $obj->name = $row["name"];
+        $obj->color = $row["color"];
         return $obj;
     }
 ?>

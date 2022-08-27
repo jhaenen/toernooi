@@ -1,6 +1,7 @@
 export interface Poule {
     id: number;
     name: string;
+    color: string;
 }
 
 export interface Team {

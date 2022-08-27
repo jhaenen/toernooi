@@ -20,7 +20,7 @@
 
     $sql = "";
     if ($poule_id == null) {
-        $sql = "SELECT * FROM toernooi_wed_name ORDER BY time ASC; ";
+        $sql = "SELECT * FROM toernooi_wed_name ORDER BY time ASC, court_num ASC; ";
     } else {
         $sql = "SELECT * FROM toernooi_wed_name WHERE poule_id = " . $poule_id . " ORDER BY time ASC; ";
     }
@@ -40,6 +40,7 @@
             $games[$index]->poule = new \stdClass();
             $games[$index]->poule->id = intval($row["poule_id"]);
             $games[$index]->poule->name = $row["poule_name"];
+            $games[$index]->poule->color = $row["poule_color"];
 
             $games[$index]->team1 = new \stdClass();
             $games[$index]->team1->id = intval($row["team1_id"]);
