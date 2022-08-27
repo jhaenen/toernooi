@@ -1,4 +1,10 @@
 <?php
+    // Return method not allowed if not GET
+    if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+        header('HTTP/1.0 405 Method Not Allowed');
+        die();
+    }
+
     $ini = parse_ini_file("../env.ini");
 
     $host = $ini["DB_HOST"];
@@ -48,7 +54,10 @@
         }
     }
 
-    echo(json_encode($stats));
-
     $conn->close();
+
+    // Set content type to json
+    header('Content-Type: application/json');
+
+    die(json_encode($stats));
 ?>
