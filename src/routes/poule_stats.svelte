@@ -56,9 +56,9 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col items-center lg:items-start gap-y-5">
+                <div class="flex flex-col items-center lg:items-start gap-y-5 -z-10">
                     <!-- Poule games -->
-                    <h2 class="font-light text-3xl lg:w-full lg:bg-white lg:sticky lg:top-20">Wedstrijden</h2>
+                    <h2 class="font-light text-3xl lg:w-full lg:bg-white lg:sticky lg:top-20 z-10">Wedstrijden</h2>
                     {#each games as game (game.id)}
                         <Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} court_num={game.court_num} ref={game.ref}/>
                     {:else}
@@ -69,6 +69,8 @@
         {:else}
             <!-- Loader -->
             <Loader {error}/>
-        {/if}       
+        {/if}  
+        
+        <div>Spring naar nu</div>
     </div>
 </template>

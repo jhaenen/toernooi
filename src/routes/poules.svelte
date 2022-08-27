@@ -32,11 +32,13 @@
         <h1 class="my-2 font-light text-5xl">Poules</h1>
 
         <!-- Poule list -->
-        {#each poules as poule (poule.id)}
-            <a class="text-2xl font-bold" href="#/poules/{poule.id}">{poule.name}</a>
-        {:else}
-            <!-- Loader -->
-            <Loader {error}/>
-        {/each}
+        <div class="flex flex-col items-center w-fit gap-y-6">
+            {#each poules as poule (poule.id)}
+                <a class="border-2 p-3 rounded-lg border-slate-500 w-full text-center text-2xl font-bold" href="#/poules/{poule.id}">{poule.name}</a>
+            {:else}
+                <!-- Loader -->
+                <Loader {error}/>
+            {/each}
+        </div>
     </div>
 </template>
