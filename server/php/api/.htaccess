@@ -1,6 +1,7 @@
 RewriteEngine On
 
 RewriteRule ^games$ g_games.php [L]
+RewriteRule ^games/sorted$ g_games_sorted.php [L]
 RewriteRule ^games/([0-9]+)$ g_games.php?p=$1 [L]
 
 RewriteRule ^poules$ g_poules.php [L]
