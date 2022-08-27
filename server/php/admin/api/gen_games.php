@@ -1,5 +1,9 @@
 <?php 
-    // include "guard.php";
+    $ini = parse_ini_file("../../env.ini");
+
+    if ($ini["ENV_MODE"] != "DEV") {
+        include "guard.php";
+    }
 
     Class Game {
         public $team1 = -1;
@@ -50,8 +54,6 @@
     
     if (isset($request->poule) && is_int($request->poule)) {
         $poule = $request->poule;
-
-        $ini = parse_ini_file("../../env.ini");
 
         $host = $ini["DB_HOST"];
         $user = $ini["DB_USER"];

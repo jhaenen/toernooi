@@ -1,5 +1,9 @@
 <?php
-    include "guard.php";
+    $ini = parse_ini_file("../../env.ini");
+
+    if ($ini["ENV_MODE"] != "DEV") {
+        include "guard.php";
+    }
 
     // Allow PATCH method on OPTIONS request
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
@@ -17,9 +21,6 @@
         header('HTTP/1.0 405 Method Not Allowed');
         die();
     }
-
-    // Connect to database
-    $ini = parse_ini_file("../../env.ini");
 
     $host = $ini["DB_HOST"];
     $user = $ini["DB_USER"];
