@@ -27,6 +27,7 @@ import Poules from "./poules.svelte";
             const response = await fetch(server + "games");
             games = await response.json();
             assignPouleColor();
+            setTimeout(scrollToCurrentGame, 500);
 
             error = false;
         } catch (err) {
@@ -34,7 +35,7 @@ import Poules from "./poules.svelte";
             console.error(err);
         }
 
-        setTimeout(scrollToCurrentGame, 500);
+        
     });
 
     function assignPouleColor() {
@@ -86,7 +87,7 @@ import Poules from "./poules.svelte";
 
         <!-- Game list -->
         {#each games as game (game.id)}
-            <Result game_id={game.id} team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} poule={game.poule.name} court_num={game.court_num} ref={game.ref} banner color={banner_color.get(game.poule.id)}/>
+            <div id={"game" + game.id} class="scroll-mt-5"><Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} poule={game.poule.name} court_num={game.court_num} ref={game.ref} banner color={banner_color.get(game.poule.id)}/></div>
         {:else}
             <Loader {error}/>
         {/each}

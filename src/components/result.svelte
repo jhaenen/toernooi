@@ -1,8 +1,6 @@
 <script lang="ts">
     import type { Team, TeamResult } from "@/types/types";
 
-    export let game_id = -1;
-
     export let team1: TeamResult; 
     export let team2: TeamResult;
     export let time = "00:00";
@@ -15,7 +13,7 @@
 </script>
 
 <template>
-    <div class="relative border-2 rounded-lg border-slate-400 p-2 text-center max-w-sm w-fit" id={(game_id != -1) ? "game" + game_id : ""}>
+    <div class="relative border-2 rounded-lg border-slate-400 p-2 text-center max-w-sm w-fit">
         <div class="text-xs font-bold mt-2">
             <span class:hidden={poule===""}>{poule}</span>
             <span class="mx-1" class:hidden={poule==="" || court_num==0}>-</span>
