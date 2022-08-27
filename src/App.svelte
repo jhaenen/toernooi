@@ -21,6 +21,7 @@
         '/schema': wrap({asyncComponent: () => import('@/routes/schema.svelte'), loadingComponent: Loader}),
         '/poules': wrap({asyncComponent: () => import('@/routes/poules.svelte'), loadingComponent: Loader}),
         '/poules/:id': wrap({asyncComponent: () => import('@/routes/poule_stats.svelte'), loadingComponent: Loader}),
+        '/org': wrap({asyncComponent: () => import('@/routes/org.svelte'), loadingComponent: Loader}),
         '*': wrap({asyncComponent: () => import('@/routes/404.svelte'), loadingComponent: Loader}),
     };
 
@@ -35,10 +36,13 @@
             <a href="#/" class="w-24 sm:py-3 sm:px-4 sm:w-auto"><NavButton label="Home" icon={home_icon} color={icon_color}/></a>
             <a href="#/poules" class="w-24 sm:py-3 sm:px-4 sm:w-auto"><NavButton label="Poules" icon={poules_icon} color={icon_color}/></a>
             <a href="#/schema" class="w-24 sm:py-3 sm:px-4 sm:w-auto"><NavButton label="Dagschema" icon={schedule_icon} color={icon_color}/></a>
-            <a href="#/org" class="w-24 sm:py-3 sm:px-4 hidden mi:block sm:w-auto"><NavButton label="Organizatie" icon={org_icon} color={icon_color}/></a>
+            <a href="#/org" class="w-24 sm:py-3 sm:px-4 hidden mi:block sm:w-auto"><NavButton label="Organisatie" icon={org_icon} color={icon_color}/></a>
         </nav>
     </div>
     
     <!-- Main content -->
-    <div class="p-1 absolute w-full top-0 bottom-[78px] sm:top-[78px] overflow-y-scroll sm:bottom-0"><Router {routes}/></div>
+    <div class="p-1 absolute w-full top-0 bottom-[78px] sm:top-[78px] overflow-y-scroll sm:bottom-0">
+        <Router {routes}/>
+        <div class="sm:hidden h-5"></div>
+    </div>
 </main>
