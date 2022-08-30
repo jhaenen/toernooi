@@ -9,7 +9,7 @@ module.exports = {
         sans: ['"Lato"', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'primary': '#455DB1',
+        'primary': '#1968D5',
       },
       screens: {
         'mi': '400px',
