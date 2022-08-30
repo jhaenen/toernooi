@@ -53,8 +53,8 @@
     function checkScroll() {
         if (games.length == 0) return;
 
-       // const now = new Date(Date.now());
-       const now = new Date(2022, 9, 10, 13, 23);
+       const now = new Date(Date.now());
+    //    const now = new Date(2022, 9, 10, 13, 23);
 
         let currentGame: Game;
 
@@ -62,7 +62,7 @@
 
         for(const game of games) {
             const time_arr = game.time.split(":");
-            const game_date = new Date(2022, 9, 10, parseInt(time_arr[0]), parseInt(time_arr[1]));
+            const game_date = new Date(2022, 8, 10, parseInt(time_arr[0]), parseInt(time_arr[1]));
 
             const diff = Math.abs(game_date.getTime() - now.getTime());
             
@@ -82,7 +82,7 @@
 
                 setTimeout(() => {
                     showScroll = false;
-                }, 5000);
+                }, 4000);
 
             } else {
                 console.error("Could not find current game");
@@ -101,7 +101,7 @@
         {#if loaded && !error}
             <!-- Title -->
             <h1 class="text-[12vw] leading-none font-light text-center border-b-2 py-[5px] mi:text-5xl lg:py-5 lg:w-full lg:bg-white lg:sticky lg:top-0 sm:my-2 sm:border-b-0 sm:underline sm:underline-offset-[10px] sm:decoration-2" style={"text-decoration-color:" + poule.color + ";border-color:" + poule.color}>
-                Poule: {poule.name}
+                {poule.name}
             </h1>
 
             <div class="flex flex-col lg:flex-row-reverse gap-x-10 gap-y-4 m-4">
@@ -117,7 +117,7 @@
                     <!-- Poule games -->
                     <h2 class="font-light text-3xl lg:w-full lg:bg-white lg:sticky lg:top-20 z-10">Wedstrijden</h2>
                     {#each games as game (game.id)}
-                        <div id={"game" + game.id} class="scroll-mt-5 sm:scroll-mt-32"><Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} court_num={game.court_num} ref={game.ref}/></div>
+                        <div id={"game" + game.id} class="scroll-mt-5 sm:scroll-mt-32"><Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} court_num={game.court_num} ref={game.ref} banner color={game.poule.color}/></div>
                     {:else}
                         <p>Geen Wedstrijden gepland.</p>
                     {/each}
@@ -129,7 +129,7 @@
         {/if}  
         
         <div class="bg-primary text-white p-2 rounded-2xl hover:cursor-pointer flex gap-1 items-center fixed bottom-24 sm:bottom-5 transition-opacity ease-linear duration-400" class:opacity-0={!showScroll} on:click={scrollToCurrentGame}>
-            <div class="mb-1">Spring naar nu</div>
+            <div class="mb-1">Actuele wedstrijd</div>
             <div><SVG src={DownIcon} class="h-[22.5px] w-[22.5px] mb-0.5" fill="white"/></div>
         </div>
     </div>
