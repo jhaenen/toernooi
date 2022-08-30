@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { resolve } from 'path'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { VitePWA } from 'vite-plugin-pwa';
 
 function resolveDir(relativePath: string) {
   return resolve(__dirname, relativePath);
@@ -18,6 +19,15 @@ export default defineConfig({
           { src: './server/php/admin/*.php', dest: 'admin' },
           { src: './server/php/admin/prod/*', dest: 'admin' },
         ]
+      }),
+      VitePWA({
+        registerType: 'autoUpdate',
+        devOptions: {
+          enabled: true,
+        },
+        workbox: {
+          navigateFallbackDenylist: [/^\/admin/]
+        }
       }),
     ],
     resolve: {
