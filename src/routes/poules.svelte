@@ -11,6 +11,7 @@
     let poules: Array<Poule> = [];
 
     let error = false;
+    let loaded = false;
 
     onMount(async () => {
         const server = import.meta.env.VITE_SERVER_URL;
@@ -19,6 +20,8 @@
         try {
             const response = await fetch(server + "poules");
             poules = await response.json();
+
+            loaded = true;
         } catch (err) {
             error = true;
             console.error(err);
@@ -29,7 +32,7 @@
 <template>
     <div class="flex flex-col items-center m-4 gap-y-8">
         <!-- Title -->
-        <h1 class="my-2 font-light text-5xl">Poules</h1>
+        <h1 class="my-2 font-light text-5xl sm:mt-8">Poules</h1>
 
         <!-- Poule list -->
         <div class="flex flex-col items-center w-fit gap-y-6">
@@ -40,7 +43,13 @@
                 </a>
             {:else}
                 <!-- Loader -->
-                <Loader {error}/>
+                {#if !loaded} 
+                    <Loader {error}/>
+                {:else}
+                    <div class="text-center">
+                        <p>Er zijn nog geen poules aangemaakt.</p>
+                    </div>
+                {/if}
             {/each}
         </div>
     </div>
