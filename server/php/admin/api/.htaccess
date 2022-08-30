@@ -1,6 +1,7 @@
 RewriteEngine On
 
 RewriteRule ^gen_games$ gen_games.php [L]
+RewriteRule ^gen_grouped$ gen_grouped.php [L]
 RewriteRule ^poules$ poules.php [L]
 RewriteRule ^results$ results.php [L]
 RewriteRule ^teams/([0-9]+)$ teams.php?id=$1 [L]

@@ -85,7 +85,7 @@
         // Bad request if there are less 3 teams
         if (count($team_ids) < 3) {
             header("HTTP/1.0 400 Bad Request");
-            die();
+            die("Poule does not exist or is not big enough");
         }
         
         // Create object for each team
@@ -108,18 +108,34 @@
             $teams_refs[$team_id] = new Ref($team_id);
         }
 
+        // Check if full is set in request and is boolean otherwise return bad request
+        if (!isset($request->full) || !is_bool($request->full)) {
+            header("HTTP/1.0 400 Bad Request");
+            die("Field full is not set or is not boolean");
+        }
+
         // Create array of all possible games
         $games = [];
         $spice = 0;
-        for ($i = 0; $i < count($teams); $i++) {
-            for ($j = $i + 1; $j < count($teams); $j++) {
-                if (($spice % 2) == 0) { // Spice up the game team order
-                    $games[] = new Game($teams[$i], $teams[$j]);
-                } else {
-                    $games[] = new Game($teams[$j], $teams[$i]);
+        if($request->full) {
+            for ($i = 0; $i < count($teams); $i++) {
+                for ($j = 0; $j < count($teams); $j++) {
+                    if ($i != $j) {
+                        $games[] = new Game($teams[$i], $teams[$j]);
+                    }
                 }
+            }
+        } else {
+            for ($i = 0; $i < count($teams); $i++) {
+                for ($j = $i + 1; $j < count($teams); $j++) {
+                    if (($spice % 2) == 0) { // Spice up the game team order
+                        $games[] = new Game($teams[$i], $teams[$j]);
+                    } else {
+                        $games[] = new Game($teams[$j], $teams[$i]);
+                    }
 
-                $spice++;
+                    $spice++;
+                }
             }
         }
 
@@ -153,7 +169,7 @@
                 } else {
                     // Bad request if interval is not set
                     header("HTTP/1.0 400 Bad Request");
-                    die();
+                    die("Interval is not set or is not integer"); 
                 }
             } else {
                 header("HTTP/1.0 400 Bad Request");
@@ -278,6 +294,6 @@
         $conn->close();
     } else {
         header("HTTP/1.0 400 Bad Request");
-        die();
+        die("Poule is not set or is not integer");
     }
 ?>
