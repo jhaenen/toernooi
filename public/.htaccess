@@ -1,14 +1,5 @@
 RewriteEngine On
 
-RewriteRule ^api/games$ /server/g_games.php [L]
-RewriteRule ^api/games/([0-9]+)$ /server/g_games.php?p=$1 [L]
-
-RewriteRule ^api/poules$ /server/g_poules.php [L]
-RewriteRule ^api/poules/([0-9]+)$ /server/g_poules.php?p=$1 [L]
-
-RewriteRule ^api/stats$ /server/g_stats.php [L]
-RewriteRule ^api/stats/([0-9]+)$ /server/g_stats.php?p=$1 [L]
-
 <Files env.ini>
   Require all denied
 </Files>
