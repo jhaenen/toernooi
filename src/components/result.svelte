@@ -22,7 +22,7 @@
         
         <div class="flex justify-between items-center">
             <div class="w-[35vw] mi:w-40">
-                <div class="text-[5vw] m-1 mi:text-xl font-bold">{team1.name}</div>
+                <div class="m-1 mi:leading-7 font-bold" style="font-size: min(1rem, 1.25rem);">{team1.name}</div>
                 <div class="text-[8vw] mi:text-4xl font-light">{team1.score}</div>
             </div>
             
@@ -32,7 +32,7 @@
             </div>
 
             <div class="w-[35vw] mi:w-40">
-                <div class="text-[5vw] m-1 mi:text-xl font-bold">{team2.name}</div>
+                <div class="m-1 mi:leading-7 font-bold" style="font-size: min(1rem, 1.25rem);">{team2.name}</div>
                 <div class="text-[8vw] mi:text-4xl font-light">{team2.score}</div>
             </div>
         </div>
