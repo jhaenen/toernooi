@@ -61,7 +61,7 @@
     function row_to_obj($row) {
         $obj = new \stdClass();
         $obj->id = intval($row["id"]);
-        $obj->name = $row["name"];
+        $obj->name = base64_decode($row["name"]);
         $obj->color = $row["color"];
         return $obj;
     }

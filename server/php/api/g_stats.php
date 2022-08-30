@@ -28,7 +28,7 @@
     if ($poule_id == null) {
         $sql = "SELECT * FROM toernooi_stats ORDER BY poule_id ASC, points DESC, score_diff DESC;";
     } else {
-        $sql = "SELECT * FROM toernooi_stats WHERE poule_id = " . $poule_id . " ORDER BY points DESC, score_diff DESC; ";
+        $sql = "SELECT * FROM toernooi_stats WHERE poule_id = " . $poule_id . " ORDER BY points DESC, score_diff DESC, score_for DESC;";
     }
     
     $result = $conn->query($sql);
@@ -42,7 +42,7 @@
             $index = count($stats) - 1;
 
             $stats[$index]->id = intval($row["id"]);
-            $stats[$index]->name = $row["name"];
+            $stats[$index]->name = base64_decode($row["name"]);
             $stats[$index]->poule_id = intval($row["poule_id"]);
             $stats[$index]->played = intval($row["played"]);
             $stats[$index]->won = intval($row["won"]);

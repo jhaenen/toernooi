@@ -47,9 +47,9 @@
             // Insert new poule with name in database
             // Check if color field is set and is string
             if (isset($request->color) && is_string($request->color)) {
-                $sql = "INSERT INTO toernooi_poules (name, color) VALUES ('" . $request->name . "', '" . $request->color . "')";
+                $sql = "INSERT INTO toernooi_poules (name, color) VALUES ('" . base64_encode($request->name) . "', '" . $request->color . "')";
             } else {
-                $sql = "INSERT INTO toernooi_poules (name) VALUES ('" . $request->name . "')";
+                $sql = "INSERT INTO toernooi_poules (name) VALUES ('" . base64_encode($request->name) . "')";
             }
             $conn->query($sql);
             die();
@@ -66,9 +66,9 @@
             // Update poule with name in database
             // Check if color field is set and is string
             if (isset($request->color) && is_string($request->color)) {
-                $sql = "UPDATE toernooi_poules SET name = '" . $request->name . "', color = '" . $request->color . "' WHERE id = " . $request->id;
+                $sql = "UPDATE toernooi_poules SET name = '" . base64_encode($request->name) . "', color = '" . $request->color . "' WHERE id = " . $request->id;
             } else {
-                $sql = "UPDATE toernooi_poules SET name = '" . $request->name . "' WHERE id = " . $request->id;
+                $sql = "UPDATE toernooi_poules SET name = '" . base64_encode($request->name) . "' WHERE id = " . $request->id;
             }
             $conn->query($sql);
             die();

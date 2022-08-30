@@ -53,7 +53,7 @@
                 $index = count($teams) - 1;
 
                 $teams[$index]->id = intval($row["id"]);
-                $teams[$index]->name = $row["name"];
+                $teams[$index]->name = base64_decode($row["name"]);
                 $teams[$index]->poule_id = intval($row["poule_id"]);
             }
 
@@ -90,7 +90,7 @@
                 $index = count($teams) - 1;
 
                 $teams[$index]->id = intval($row["id"]);
-                $teams[$index]->name = $row["name"];
+                $teams[$index]->name = base64_decode($row["name"]);
                 $teams[$index]->poule_id = intval($row["poule_id"]);
             }
 
@@ -116,7 +116,7 @@
             }
 
             // insert new team with name in database
-            $sql = "INSERT INTO toernooi_teams (poule_id, name) VALUES (" . $request->poule_id . ", '" . $request->name . "')";
+            $sql = "INSERT INTO toernooi_teams (poule_id, name) VALUES (" . $request->poule_id . ", '" . base64_encode($request->name) . "')";
             $conn->query($sql);
 
             // Internal server error if query failed
@@ -137,7 +137,7 @@
             die();
         } else {
             // Update team in database
-            $sql = "UPDATE toernooi_teams SET name = '" . $request->name . "' WHERE id = " . $request->id;
+            $sql = "UPDATE toernooi_teams SET name = '" . base64_encode($request->name) . "' WHERE id = " . $request->id;
             $conn->query($sql);
 
             // Internal server error if query failed

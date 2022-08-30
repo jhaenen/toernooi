@@ -45,16 +45,16 @@
 
             $games[$index]->poule = new \stdClass();
             $games[$index]->poule->id = intval($row["poule_id"]);
-            $games[$index]->poule->name = $row["poule_name"];
+            $games[$index]->poule->name = base64_decode($row["poule_name"]);
             $games[$index]->poule->color = $row["poule_color"];
 
             $games[$index]->team1 = new \stdClass();
             $games[$index]->team1->id = intval($row["team1_id"]);
-            $games[$index]->team1->name = $row["team1_name"];
+            $games[$index]->team1->name = base64_decode($row["team1_name"]);
 
             $games[$index]->team2 = new \stdClass();
             $games[$index]->team2->id = intval($row["team2_id"]);
-            $games[$index]->team2->name = $row["team2_name"];
+            $games[$index]->team2->name = base64_decode($row["team2_name"]);
 
             $games[$index]->team1->score = intval($row["score1"]);
             $games[$index]->team2->score = intval($row["score2"]);
@@ -65,7 +65,7 @@
 
             $games[$index]->ref = new \stdClass();
             $games[$index]->ref->id = $row["ref_id"];
-            $games[$index]->ref->name = $row["ref_name"];
+            $games[$index]->ref->name = base64_decode($row["ref_name"]);
         }
     }
 

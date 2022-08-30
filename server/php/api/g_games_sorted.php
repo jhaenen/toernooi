@@ -48,16 +48,16 @@
 
             $groups[$groupIndex]->games[$gameIndex]->poule = new \stdClass();
             $groups[$groupIndex]->games[$gameIndex]->poule->id = intval($row["poule_id"]);
-            $groups[$groupIndex]->games[$gameIndex]->poule->name = $row["poule_name"];
+            $groups[$groupIndex]->games[$gameIndex]->poule->name = base64_decode($row["poule_name"]);
             $groups[$groupIndex]->games[$gameIndex]->poule->color = $row["poule_color"];
 
             $groups[$groupIndex]->games[$gameIndex]->team1 = new \stdClass();
             $groups[$groupIndex]->games[$gameIndex]->team1->id = intval($row["team1_id"]);
-            $groups[$groupIndex]->games[$gameIndex]->team1->name = $row["team1_name"];
+            $groups[$groupIndex]->games[$gameIndex]->team1->name = base64_decode($row["team1_name"]);
 
             $groups[$groupIndex]->games[$gameIndex]->team2 = new \stdClass();
             $groups[$groupIndex]->games[$gameIndex]->team2->id = intval($row["team2_id"]);
-            $groups[$groupIndex]->games[$gameIndex]->team2->name = $row["team2_name"];
+            $groups[$groupIndex]->games[$gameIndex]->team2->name = base64_decode($row["team2_name"]);
 
             $groups[$groupIndex]->games[$gameIndex]->team1->score = intval($row["score1"]);
             $groups[$groupIndex]->games[$gameIndex]->team2->score = intval($row["score2"]);
@@ -68,7 +68,7 @@
 
             $groups[$groupIndex]->games[$gameIndex]->ref = new \stdClass();
             $groups[$groupIndex]->games[$gameIndex]->ref->id = intval($row["ref_id"]);
-            $groups[$groupIndex]->games[$gameIndex]->ref->name = $row["ref_name"];
+            $groups[$groupIndex]->games[$gameIndex]->ref->name = base64_decode($row["ref_name"]);
 
         }
     }
