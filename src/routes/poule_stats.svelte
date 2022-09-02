@@ -29,15 +29,12 @@
 
         // Get stats from server
         try {
-            const [g_resp, p_resp, s_resp] = await Promise.all([
-                fetch(server + "games/" + params.id),
-                fetch(server + "poules/" + params.id),
-                fetch(server + "stats/" + params.id)
-            ]);
+            const response = await fetch(server + "poules/" + params.id + "/stats");
+            const combi = await response.json();
 
-            games = await g_resp.json();
-            poule = await p_resp.json();
-            stats = await s_resp.json();
+            games = combi.games;
+            poule = combi.poule;
+            stats = combi.stats;
 
             setTimeout(checkScroll, 10);
 

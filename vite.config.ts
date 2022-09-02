@@ -26,7 +26,7 @@ export default defineConfig({
           enabled: false,
         },
         workbox: {
-          navigateFallbackDenylist: [/^\/admin/]
+          navigateFallbackDenylist: [/^\/admin/, /^\/api/],
         }
       }),
     ],
