@@ -90,7 +90,7 @@
         <img class="w-[40%] h-auto max-w-xs sm:hidden" src={logo} alt="DAS logo" width="320" height="320"/>
         
         <!-- Title -->
-        <h1 class="my-2 text-[12vw] leading-none font-thin mi:text-5xl sm:mt-8">Dagschema</h1>
+        <h1 class="my-2 text-[12vw] leading-none font-thin mi:text-5xl sm:mt-8">Wedstrijdschema</h1>
 
         <!-- Game list -->
         <div class="flex flex-col items-center w-fit">

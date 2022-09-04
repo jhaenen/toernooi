@@ -1,17 +1,18 @@
 <script>
     import Rules from "@/components/rules.svelte";
+    import Schedule from "@/components/schedule.svelte";
 
 </script>
 <main>
-    <div class="flex flex-col items-center sm:items-start sm:text-left">
+    <div class="flex flex-col items-center sm:items-start sm:text-left overflow-x-hidden">
         <!-- Title -->
-        <h1 class="m-4 text-[12vw] leading-none font-light mi:text-5xl sm:mt-8">Algemene informatie</h1>
+        <h1 class="m-4 text-[12vw] w-full text-center leading-none font-light mi:text-5xl sm:mt-8 sm:text-left">Algemene informatie</h1>
 
         <!-- Main text -->
         <div class="flex flex-col m-3 gap-4">
             <!-- FAQ -->
-            <h2 class="mt-5 text-[8vw] leading-none mi:text-3xl">Veelgestelde vragen</h2>
-            <div>TODO...</div>
+            <h2 class="mt-5 text-[8vw] leading-none mi:text-3xl">Dagschema</h2>
+            <div><Schedule/></div>
 
             <!-- Reglement -->
             <h2 id="rules" class="mt-5 text-[8vw] leading-none mi:text-3xl scroll-mt-2">Reglement</h2>
