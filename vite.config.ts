@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { resolve } from 'path'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { VitePWA } from 'vite-plugin-pwa';
 
 function resolveDir(relativePath: string) {
@@ -10,23 +9,23 @@ function resolveDir(relativePath: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    build: {
+      rollupOptions: {
+        input: {
+          main: resolveDir('index.html'),
+          'screen.html': resolveDir('screen.html'),
+        },
+      }
+    },
     plugins: [
       svelte(),
-      viteStaticCopy({
-        targets: [
-          { src: './server/php/*.php', dest: 'server' },
-          { src: './server/php/prod/env.ini', dest: 'server' },
-          { src: './server/php/admin/*.php', dest: 'admin' },
-          { src: './server/php/admin/prod/*', dest: 'admin' },
-        ]
-      }),
       VitePWA({
         registerType: 'autoUpdate',
         devOptions: {
           enabled: false,
         },
         workbox: {
-          navigateFallbackDenylist: [/^\/admin/, /^\/api/],
+          navigateFallbackDenylist: [/^\/admin/, /^\/api/, /^\/screen.html/],
         }
       }),
     ],

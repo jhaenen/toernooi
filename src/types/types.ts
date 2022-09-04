@@ -2,6 +2,7 @@ export interface Poule {
     id: number;
     name: string;
     color: string;
+    standings?: Stats[];
 }
 
 export interface Team {
