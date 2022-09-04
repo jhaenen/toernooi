@@ -5,7 +5,7 @@
 
     $login = parse_ini_file("./env.ini");
 
-    $session_dur_sec = 600;
+    $session_dur_sec = 64800; // 18 hours
 
     function unauthorized() {
         header('HTTP/1.0 401 Unauthorized');
