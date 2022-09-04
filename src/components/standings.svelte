@@ -7,7 +7,7 @@
     export let standings: Array<Stats> = [];
 
     export let showToggle = true;
-    export let forceDetails = true;
+    export let forceDetails = false;
     export let hideOverflow = false;
 
     let details = false;

@@ -58,7 +58,7 @@
         {#each poules as poule (poule.id)}
             <div class="w-fit">
                 <div class="font-light text-3xl mb-5 border-b-2 pb-2" style={"border-color:" + poule.color}>{poule.name}</div>
-                <Standings standings={poule.standings} showToggle={false} hideOverflow={true}/>
+                <Standings standings={poule.standings} showToggle={false} hideOverflow={true} forceDetails={true}/>
             </div>
         {/each}
     </div>
