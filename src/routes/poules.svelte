@@ -14,6 +14,12 @@
     let loaded = false;
 
     onMount(async () => {
+        await loadData();
+    });
+
+    window.addEventListener('online', () => { loadData(); });
+
+    async function loadData() {
         const server = import.meta.env.VITE_SERVER_URL;
 
         // Get poules from server
@@ -26,7 +32,7 @@
             error = true;
             console.error(err);
         }
-    });
+    }
 </script>
 
 <template>

@@ -25,6 +25,12 @@
     export let params = {id: -1};
 
     onMount(async () => {
+        await loadData();
+    });
+
+    window.addEventListener('online', () => { loadData(); });
+
+    async function loadData() {
         const server = import.meta.env.VITE_SERVER_URL;
 
         // Get stats from server
@@ -43,7 +49,7 @@
             error = true;
             console.error(err);
         }
-    });
+    }
 
     let scrollTarget: HTMLElement;
     let showScroll = false;

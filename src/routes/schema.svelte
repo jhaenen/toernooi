@@ -23,6 +23,12 @@
     let loaded = false;
 
     onMount(async () => {
+        await loadData();
+    });
+
+    window.addEventListener('online', () => { loadData(); });
+
+    async function loadData() {
         const server = import.meta.env.VITE_SERVER_URL;
 
         // Get games from server
@@ -40,7 +46,7 @@
         }
 
         
-    });
+    }
 
     function scrollToCurrentGame() {
         if (gamesSorted.length == 0) return;
