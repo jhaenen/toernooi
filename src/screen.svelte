@@ -33,7 +33,7 @@
 
         // Get stats from server
         try {
-            const response = await fetch(server + "g_screen.php");
+            const response = await fetch(server + "screen");
             const json = await response.json();
 
             poules = json.stats;
