@@ -4,12 +4,12 @@
 
 </script>
 <main>
-    <div class="flex flex-col items-center sm:items-start sm:text-left overflow-x-hidden">
+    <div class="flex flex-col items-center sm:items-start sm:text-left overflow-hidden">
         <!-- Title -->
         <h1 class="m-4 text-[12vw] w-full text-center leading-none font-light mi:text-5xl sm:mt-8 sm:text-left">Algemene informatie</h1>
 
         <!-- Main text -->
-        <div class="flex flex-col m-3 gap-4">
+        <div class="flex flex-col mt-3 mx-3 gap-4">
             <!-- FAQ -->
             <h2 class="mt-5 text-[8vw] leading-none mi:text-3xl">Dagschema</h2>
             <div><Schedule/></div>
@@ -29,8 +29,12 @@
             <h2 class="mt-5 text-[8vw] leading-none mi:text-3xl">Contact</h2>
             <div>E-mail: <a href="mailto:toernooi.dasdelft@gmail.com?subject=Vragen%20familietoernooi%202022" class="text-primary underline">toernooi.dasdelft@gmail.com</a></div>
 
-            <div class="h-5"></div>
             
+
         </div>
+
+        <!-- Acknowledgements -->
+        <div class="w-full text-center text-sm text-slate-800 border-t-2 pt-2 mt-8 sm:mt-5">Ontwikkeld en ontworpen door: Jasper Haenen</div>
+        <div class="sm:h-5"></div>
     </div>
 </main>

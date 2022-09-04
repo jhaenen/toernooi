@@ -91,7 +91,5 @@
             <div class="flex h-40 items-center"><span class="text-3xl font-light">Nog geen wedstrijden gespeeld</span></div>
             {/each}
         </div>
-    </div>
-
-    
+    </div>    
 </template>

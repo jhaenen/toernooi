@@ -29,23 +29,26 @@
     function calculateLineLengths() {
         // Loop through all events
         for (let i = 0; i < dots.length - 1; i++) {
-            // Get bounding client rect of element with dot(i) id and the next element
-            const dot_el = dots[i].el;
-            const next_el = dots[i + 1].el;
+            // Check if dots.el is not null
+            if (dots[i].el && dots[i + 1].el) {
+                // Get bounding client rect of element with dot(i) id and the next element
+                const dot_el = dots[i].el;
+                const next_el = dots[i + 1].el;
 
-            const dot = dot_el.getBoundingClientRect();
-            const next = next_el.getBoundingClientRect();
+                const dot = dot_el.getBoundingClientRect();
+                const next = next_el.getBoundingClientRect();
 
-            // Get the y coordinate of the center of dot
-            const dotY = dot.y + dot.height / 2;
+                // Get the y coordinate of the center of dot
+                const dotY = dot.y + dot.height / 2;
 
-            // Get the y coordinate of the center of next
-            const nextY = next.y + next.height / 2;
+                // Get the y coordinate of the center of next
+                const nextY = next.y + next.height / 2;
 
-            const length = nextY - dotY;
+                const length = nextY - dotY;
 
-            // Calculate the length of the line
-            dots[i].lineLength = length;
+                // Calculate the length of the line
+                dots[i].lineLength = length;
+            }
         }     
     }
 </script>
