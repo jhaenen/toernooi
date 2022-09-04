@@ -26,6 +26,7 @@ export default defineConfig({
         },
         workbox: {
           navigateFallbackDenylist: [/^\/admin/, /^\/api/, /^\/screen.html/],
+          globPatterns: ["**/*.{js,css,html,svg}"],
         }
       }),
     ],

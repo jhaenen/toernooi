@@ -1,6 +1,9 @@
 <script lang="ts">
+    import SVG from 'svelte-inline-svg';
+
     import ball from "@/assets/basketball.svg";
     import ErrorIcon from '@/assets/icons/error.svg';
+    import NoWiFiIcon from '@/assets/icons/wifi-slash.svg';
 
     export let error = false;
 </script>
@@ -11,8 +14,13 @@
             <img class="animate-bounce h-10 w-10" src={ball} alt=""/>
             <span>Laden...</span>
         {:else}
-            <img src={ErrorIcon} class="w-8 h-8 mb-3" alt=""/>
-            <span>Er is iets fout gegaan</span>
+            {#if navigator.onLine}
+                <SVG src={ErrorIcon} class="w-9 h-9 mb-3 fill-slate-600" alt=""/>
+                <span>Er is iets fout gegaan</span>
+            {:else}
+                <SVG src={NoWiFiIcon} class="w-10 h-10 mb-3 fill-slate-600" alt=""/>
+                <span>Geen internet verbinding</span>
+            {/if}
         {/if}
     </div>
 </template>
