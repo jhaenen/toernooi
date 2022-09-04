@@ -88,7 +88,7 @@
                     <Result team1={game.team1} team2={game.team2} time={game.time.substring(0, 5)} poule={game.poule.name} court_num={game.court_num} ref={game.ref} banner color={game.poule.color} />
                 </div>
             {:else}
-            <div class="flex h-40 items-center"><span class="text-3xl font-light">Nog geen wedstrijden gespeelt</span></div>
+            <div class="flex h-40 items-center"><span class="text-3xl font-light">Nog geen wedstrijden gespeeld</span></div>
             {/each}
         </div>
     </div>
