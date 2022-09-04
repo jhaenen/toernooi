@@ -33,7 +33,7 @@
         $poule_id = $_GET['p'];
     }    
 
-    $sql = "SELECT * FROM toernooi_stats WHERE poule_id = " . $poule_id . " ORDER BY points DESC, score_diff DESC, score_for DESC;";
+    $sql = "SELECT * FROM toernooi_stats WHERE poule_id = " . $poule_id . " ORDER BY points DESC, score_diff DESC, score_for DESC, id ASC;";
     $stat_result = $conn->query($sql);
 
     $stats = array();

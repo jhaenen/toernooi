@@ -58,7 +58,7 @@
             }
         }
 
-        $sql = "SELECT * FROM toernooi_stats ORDER BY poule_id ASC, points DESC, score_diff DESC;";
+        $sql = "SELECT * FROM toernooi_stats ORDER BY poule_id ASC, points DESC, score_diff DESC, id ASC;";
 
         $result = $conn->query($sql);
 
@@ -83,7 +83,7 @@
             }
         }
     } else {
-        $sql = "SELECT * FROM toernooi_stats WHERE poule_id = " . $poule_id . " ORDER BY points DESC, score_diff DESC, score_for DESC;";
+        $sql = "SELECT * FROM toernooi_stats WHERE poule_id = " . $poule_id . " ORDER BY points DESC, score_diff DESC, score_for DESC, id ASC;";
 
         $result = $conn->query($sql);
 

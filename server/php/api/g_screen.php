@@ -167,7 +167,7 @@
         }
     }
 
-    $sql = "SELECT * FROM toernooi_stats ORDER BY poule_id ASC, points DESC, score_diff DESC;";
+    $sql = "SELECT * FROM toernooi_stats ORDER BY poule_id ASC, points DESC, score_diff DESC, id ASC;";
 
     $result = $conn->query($sql);
 
