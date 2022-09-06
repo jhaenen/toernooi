@@ -45,7 +45,7 @@
                 <li class="my-2">Alle scores tellen voor 2 punten. (Er zijn dus geen 3 punters mogelijk)</li>
             </ol>
 
-            <div class="absolute bottom-0 left-0 w-full text-center m-0 h-3/4 z-10 transition-opacity duration-300" class:opacity-0={!preview} class:opacity-1={preview} style="background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255, 255, 255, 1));"></div>
+            <div class="absolute bottom-0 left-0 w-full text-center m-0 h-3/4 z-[5] transition-opacity duration-300" class:opacity-0={!preview} class:opacity-1={preview} style="background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255, 255, 255, 1));"></div>
         </div>
         <div class="w-full flex justify-center mt-3"><button class="bg-primary text-white px-4 py-2 rounded-full" on:click={togglePreview}>
                 {#if preview}

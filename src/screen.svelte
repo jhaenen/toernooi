@@ -57,7 +57,7 @@
     <div class="flex flex-roww-full justify-center gap-x-[5vw]">
         {#each poules as poule (poule.id)}
             <div class="w-fit">
-                <div class="font-light text-3xl mb-5 border-b-2 pb-2" style={"border-color:" + poule.color}>{poule.name}</div>
+                <div class="font-light text-4xl mb-5 border-b-2 pb-2 font-logo" style={"border-color:" + poule.color}>{poule.name}</div>
                 <Standings standings={poule.standings} showToggle={false} hideOverflow={true} forceDetails={true}/>
             </div>
         {/each}
@@ -66,7 +66,7 @@
     
         
     <div>
-        <h2 class="text-3xl text-center mt-8 mb-5">Volgende wedstrijden</h2>
+        <h2 class="text-4xl text-center mt-8 mb-5 font-logo">Volgende wedstrijden</h2>
 
         <div class="flex flex-roww-full justify-center gap-x-[5vw]">
             {#each next_games as game (game.id)}
@@ -80,7 +80,7 @@
     </div>
 
     <div>
-        <h2 class="text-3xl text-center mt-10 mb-5">Laatste Uitslagen</h2>
+        <h2 class="text-4xl text-center mt-10 mb-5 font-logo">Laatste Uitslagen</h2>
 
         <div class="flex flex-row w-full justify-center gap-x-[5vw]">
             {#each last_results as game (game.id)}
