@@ -12,6 +12,6 @@
 <template>
     <div class="flex flex-col items-start justify-evenly w-full h-full lg:flex-row lg:justify-start lg:gap-x-20">
         <div class="ml-2 mb-4"><EventComp events={gameEvents} title="Toernooi"/></div>
-        <div class="ml-2 mt-2"><EventComp events={partyEvents} title="BBQ/Feest"/></div>
+        <div class="ml-2 mt-2"><EventComp events={partyEvents} title="Foodtruck & Feest"/></div>
     </div>
 </template>
