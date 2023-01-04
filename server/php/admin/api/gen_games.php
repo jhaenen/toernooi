@@ -153,8 +153,8 @@
         }
 
         $sql = "";
-        if (!isset($request->court) || !is_int($request->court)) {
-            $sql = "INSERT INTO toernooi_wedstrijden (poule_id, team1_id, team2_id, time, ref_id) VALUES ";
+        if (!isset($request->use_ref) || $request->use_ref == false) {
+            $sql = "INSERT INTO toernooi_wedstrijden (poule_id, team1_id, team2_id, time, court_num) VALUES ";
         } else {
             $sql = "INSERT INTO toernooi_wedstrijden (poule_id, team1_id, team2_id, time, court_num, ref_id) VALUES ";
         }
@@ -234,8 +234,8 @@
             // echo "Rest: " . $teams_rest[$game->team1] . " vs " . $teams_rest[$game->team2] . "<br>";
 
             // Insert game into database
-            if (!isset($request->court) || !is_int($request->court)) {
-                $sql .= "(" . $poule . ", " . $game->team1 . ", " . $game->team2 . ", '" . date_format($time, "H:i") . "', " . $referee->team_id . "),";
+            if (!isset($request->use_ref) || $request->use_ref == false) {
+                $sql .= "(" . $poule . ", " . $game->team1 . ", " . $game->team2 . ", '" . date_format($time, "H:i") . "', " . $request->court . "),";
             } else {
                 $sql .= "(" . $poule . ", " . $game->team1 . ", " . $game->team2 . ", '" . date_format($time, "H:i") . "', " . $request->court . ", " . $referee->team_id . "),";
             }
