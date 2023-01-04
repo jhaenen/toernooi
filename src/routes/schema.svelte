@@ -61,7 +61,7 @@
 
         for(const slot of gamesSorted) {
             const time_arr = slot.time.split(":");
-            const game_date = new Date(2022, 8, 10, parseInt(time_arr[0]), parseInt(time_arr[1]));
+            const game_date = new Date(2023, 0, 4, parseInt(time_arr[0]), parseInt(time_arr[1]));
 
             const diff = Math.abs(game_date.getTime() - now.getTime());
             
