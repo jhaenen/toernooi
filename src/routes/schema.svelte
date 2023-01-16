@@ -10,7 +10,7 @@
     import Loader from "@/components/load-ball.svelte";
 
     // Assets
-    import logo from "@/assets/logo.svg";
+    const logo = "/src/assets/logo.svg";
 
     interface TimeSlot {
         time: string;
