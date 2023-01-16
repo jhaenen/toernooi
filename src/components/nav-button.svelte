@@ -1,7 +1,7 @@
 <script lang="ts">
     import SVG from 'svelte-inline-svg';
 
-    const ErrorIcon = '/src/assets/icons/error.svg';
+    import ErrorIcon from '@/assets/icons/error.svg';
 
     export let label = "NO_LABEL";
     export let icon = ErrorIcon;

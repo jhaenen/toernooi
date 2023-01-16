@@ -10,7 +10,7 @@
     import Result from "@/components/result.svelte";
     import Standings from "@/components/standings.svelte";
 
-    const logo = "/src/assets/logo.svg";
+    import logo from "@/assets/logo.svg";
 
     let poules: Array<Poule> = [];
     let next_games: Array<Game> = [];

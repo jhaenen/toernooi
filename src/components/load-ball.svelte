@@ -1,9 +1,9 @@
 <script lang="ts">
     import SVG from 'svelte-inline-svg';
 
-    const ball = "/src/assets/basketball.svg";
-    const ErrorIcon = '/src/assets/icons/error.svg';
-    const NoWiFiIcon = '/src/assets/icons/wifi-slash.svg';
+    import ball from "@/assets/basketball.svg";
+    import ErrorIcon from '@/assets/icons/error.svg';
+    import NoWiFiIcon from '@/assets/icons/wifi-slash.svg';
 
     export let error = false;
 </script>

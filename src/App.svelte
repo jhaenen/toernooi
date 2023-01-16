@@ -8,11 +8,11 @@
     import Loader from '@/components/load-ball.svelte';
 
     // Assets
-    const logo = "/src/assets/logo.svg";
-    const home_icon = "/src/assets/icons/house.svg";
-    const poules_icon = "/src/assets/icons/basketball.svg";
-    const schedule_icon = "/src/assets/icons/newspaper.svg";
-    const org_icon = "/src/assets/icons/org.svg";
+    import logo from "@/assets/logo.svg";
+    import home_icon from "@/assets/icons/house.svg";
+    import poules_icon from "@/assets/icons/basketball.svg";
+    import schedule_icon from "@/assets/icons/newspaper.svg";
+    import org_icon from "@/assets/icons/org.svg";
 
 
     // Routes

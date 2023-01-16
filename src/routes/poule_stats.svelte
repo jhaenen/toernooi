@@ -13,7 +13,7 @@
     import SVG from 'svelte-inline-svg';
 
     // Assets
-    const DownIcon = '/src/assets/icons/arrow-down.svg';
+    import DownIcon from '@/assets/icons/arrow-down.svg';
 
     let poule: Poule;
     let games: Array<Game> = [];

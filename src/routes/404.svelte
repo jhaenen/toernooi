@@ -1,6 +1,6 @@
 <script lang="ts">
     // Assets
-    const sadball = "/src/assets/sad-ball.svg";
+    import sadball from "@/assets/sad-ball.svg";
 
     export let params: {wild: string};
 
