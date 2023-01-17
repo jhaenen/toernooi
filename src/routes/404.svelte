@@ -1,6 +1,6 @@
 <script lang="ts">
     // Assets
-    import sadball from "@/assets/sad-ball.svg";
+    import SadBall from "@/assets/sad-ball.svg?component";
 
     export let params: {wild: string};
 
@@ -13,7 +13,7 @@
         <h1 class="m-4 font-light text-5xl">Onbekende pagina</h1>
 
         <!-- Sad ball :( -->
-        <img class="w-32 h-32" src={sadball} alt="Sad Ball">
+        <SadBall class="w-32 h-32" alt="Sad Ball"/>
 
         <!-- Message -->
         <p class="m-4">Deze pagina bestaat niet. Ga terug naar <a class="text-primary underline" href="#/">Startpagina</a>.</p>

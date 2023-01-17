@@ -10,10 +10,8 @@
     import Result from "@/components/result.svelte";
     import Standings from "@/components/standings.svelte";
 
-    import SVG from 'svelte-inline-svg';
-
     // Assets
-    import DownIcon from '@/assets/icons/arrow-down.svg';
+    import DownIcon from '@/assets/icons/arrow-down.svg?component';
 
     let poule: Poule;
     let games: Array<Game> = [];
@@ -134,7 +132,7 @@
         
         <div class="bg-primary text-white p-2 rounded-2xl hover:cursor-pointer flex gap-1 items-center fixed bottom-24 sm:bottom-5 transition-opacity ease-linear duration-400" class:opacity-0={!showScroll} on:click={scrollToCurrentGame}>
             <div class="mb-1">Actuele wedstrijd</div>
-            <div><SVG src={DownIcon} class="h-[22.5px] w-[22.5px] mb-0.5" fill="white"/></div>
+            <div><DownIcon class="h-[22.5px] w-[22.5px] mb-0.5" fill="white"/></div>
         </div>
     </div>
 </template>
