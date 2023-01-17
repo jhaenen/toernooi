@@ -9,7 +9,7 @@
 <template>
     <div class="flex flex-col items-center justify-end h-[75px] w-full fixed top-[40%] left-0">
         {#if !error}
-            <BallIcon class="animate-bounce h-10 w-10" alt=""/>
+            <BallIcon class="animate-bounce h-10 w-10"/>
             <span>Laden...</span>
         {:else}
             {#if navigator.onLine}
