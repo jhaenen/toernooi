@@ -8,7 +8,7 @@
 
 <template>
     <div class="flex flex-col items-center">
-        <Icon class="h-[22.5px] w-[22.5px] mb-0.5 sm:hidden" fill={color}/>
+        <svelte:component this={Icon} class="h-[22.5px] w-[22.5px] mb-0.5 sm:hidden" fill={color}/>
         <span class="font-bold">{label}</span>
     </div>
 </template>
