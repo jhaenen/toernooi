@@ -24,7 +24,7 @@
     "vite-plugin-pwa": "^0.12.3"
   },
   "dependencies": {
-    "svelte-inline-svg": "^1.1.4",
-    "svelte-spa-router": "^3.3.0"
+    "svelte-spa-router": "^3.3.0",
+    "vite-plugin-svelte-svg": "^2.1.0"
   }
 }
