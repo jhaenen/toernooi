@@ -12,3 +12,5 @@ RewriteRule ^stats$ g_stats.php [L]
 RewriteRule ^stats/([0-9]+)$ g_stats.php?p=$1 [L]
 
 RewriteRule ^screen$ g_screen.php [L]
+
+RewriteRule ^params/date$ g_params.php?name=datum [L]

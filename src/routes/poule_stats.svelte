@@ -40,7 +40,11 @@
             poule = combi.poule;
             stats = combi.stats;
 
-            setTimeout(checkScroll, 10);
+            // Get game date
+            const date_resp = await fetch(server + "params/date");
+            const date = await date_resp.json();
+
+            setTimeout(() => checkScroll(date.datum), 10);
 
             loaded = true;
         } catch (err) {
@@ -52,7 +56,7 @@
     let scrollTarget: HTMLElement;
     let showScroll = false;
 
-    function checkScroll() {
+    function checkScroll(date: string) {
         if (games.length == 0) return;
 
        const now = new Date(Date.now());
@@ -62,9 +66,12 @@
 
         let cur_diff = Number.MAX_VALUE;
 
+        const date_arr = date.split("-");
+        date_arr[1] = (parseInt(date_arr[1]) - 1).toString();
+
         for(const game of games) {
             const time_arr = game.time.split(":");
-            const game_date = new Date(2023, 0, 4, parseInt(time_arr[0]), parseInt(time_arr[1]));
+            const game_date = new Date(parseInt(date_arr[0]), parseInt(date_arr[1]), parseInt(date_arr[2]), parseInt(time_arr[0]), parseInt(time_arr[1]));
 
             const diff = Math.abs(game_date.getTime() - now.getTime());
             

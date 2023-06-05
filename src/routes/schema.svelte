@@ -33,10 +33,14 @@
 
         // Get games from server
         try {
-            const response = await fetch(server + "games/sorted");
-            gamesSorted = await response.json();
+            const games_resp = await fetch(server + "games/sorted");
+            gamesSorted = await games_resp.json();
 
-            setTimeout(scrollToCurrentGame, 500);
+            // Get game date
+            const date_resp = await fetch(server + "params/date");
+            const date = await date_resp.json();
+
+            setTimeout(() => scrollToCurrentGame(date.datum), 500);
 
             error = false;
             loaded = true;
@@ -45,10 +49,9 @@
             console.error(err);
         }
 
-        
     }
 
-    function scrollToCurrentGame() {
+    function scrollToCurrentGame(date: string) {
         if (gamesSorted.length == 0) return;
 
         const now = new Date(Date.now());
@@ -59,9 +62,12 @@
         
         let cur_diff = Number.MAX_VALUE;
 
+        const date_arr = date.split("-");
+        date_arr[1] = (parseInt(date_arr[1]) - 1).toString();
+
         for(const slot of gamesSorted) {
             const time_arr = slot.time.split(":");
-            const game_date = new Date(2023, 0, 4, parseInt(time_arr[0]), parseInt(time_arr[1]));
+            const game_date = new Date(parseInt(date_arr[0]), parseInt(date_arr[1]), parseInt(date_arr[2]), parseInt(time_arr[0]), parseInt(time_arr[1]));
 
             const diff = Math.abs(game_date.getTime() - now.getTime());
             
