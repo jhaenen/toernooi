@@ -63,9 +63,13 @@
 
             $response->latest[$index]->court_num = $row["court_num"];
 
-            $response->latest[$index]->ref = new \stdClass();
-            $response->latest[$index]->ref->id = $row["ref_id"];
-            $response->latest[$index]->ref->name = base64_decode($row["ref_name"]);
+            if($row["ref_id"] == null) {
+                $response->latest[$index]->ref = null;
+            } else {
+                $response->latest[$index]->ref = new \stdClass();
+                $response->latest[$index]->ref->id = $row["ref_id"];
+                $response->latest[$index]->ref->name = base64_decode($row["ref_name"]);
+            }
         }
     }
 

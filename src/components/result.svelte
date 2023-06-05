@@ -6,7 +6,7 @@
     export let time = "00:00";
     export let poule = "";
     export let court_num = 0;
-    export let ref: Team;
+    export let ref: Team | null = null;
     export let banner = false;
 
     export let color = "#000000";
@@ -36,10 +36,18 @@
                 <div class="text-[8vw] mi:text-4xl font-light">{team2.score}</div>
             </div>
         </div>
-        <div class="text-xs my-2" class:hidden={ref === undefined}>
-            <div class="font-bold">Tafel/Scheids</div> 
-            <div>{ref.name}</div>
-        </div>
+
+        {#if ref !== null}
+            <div class="text-xs my-2" >
+                <div class="font-bold">Tafel/Scheids</div> 
+                <div>{ref.name}</div>
+            </div>
+        {:else}
+            <div class="text-xs my-2 select-none">
+                <div class="font-bold">&nbsp;</div> 
+                <div>&nbsp;</div>
+            </div>
+        {/if}
         
         <div class="absolute w-2 h-full top-0 right-0 -z-10" class:hidden={!banner} style={"background-color: " + color}></div>
     </div>

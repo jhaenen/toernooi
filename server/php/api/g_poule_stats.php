@@ -90,9 +90,14 @@
 
             $games[$index]->court_num = $row["court_num"];
 
-            $games[$index]->ref = new \stdClass();
-            $games[$index]->ref->id = $row["ref_id"];
-            $games[$index]->ref->name = base64_decode($row["ref_name"]);
+            if($row["ref_id"] == null) {
+                $games[$index]->ref = null;
+            } else {
+                $games[$index]->ref = new \stdClass();
+                $games[$index]->ref->id = $row["ref_id"];
+                $games[$index]->ref->name = base64_decode($row["ref_name"]);
+            }
+            
         }
     }
 

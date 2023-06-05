@@ -82,8 +82,9 @@
             }
         }
 
+        $use_ref = (isset($request->use_ref) && $request->use_ref) ? true : false;
         // Bad request if there are less 3 teams
-        if (count($team_ids) < 3) {
+        if ((count($team_ids) < 3 && $use_ref) || (count($team_ids) < 2 && !$use_ref)) {
             header("HTTP/1.0 400 Bad Request");
             die("Poule does not exist or is not big enough");
         }

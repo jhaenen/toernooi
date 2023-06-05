@@ -75,10 +75,13 @@
 
             $groups[$groupIndex]->games[$gameIndex]->court_num = $row["court_num"];
 
-            $groups[$groupIndex]->games[$gameIndex]->ref = new \stdClass();
-            $groups[$groupIndex]->games[$gameIndex]->ref->id = intval($row["ref_id"]);
-            $groups[$groupIndex]->games[$gameIndex]->ref->name = base64_decode($row["ref_name"]);
-
+            if($row["ref_id"] == null) {
+                $groups[$groupIndex]->games[$gameIndex]->ref = null;
+            } else {
+                $groups[$groupIndex]->games[$gameIndex]->ref = new \stdClass();
+                $groups[$groupIndex]->games[$gameIndex]->ref->id = intval($row["ref_id"]);
+                $groups[$groupIndex]->games[$gameIndex]->ref->name = base64_decode($row["ref_name"]);
+            }
         }
     }
 
