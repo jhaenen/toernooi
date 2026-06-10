@@ -22,6 +22,13 @@
     let error = false;
     let loaded = false;
 
+    let previousId: number | null = null;
+
+    $: if (params.id !== previousId) {
+        previousId = params.id;
+        loadData();
+    }
+
     onMount(async () => {
         await loadData();
     });
