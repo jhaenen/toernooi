@@ -28,6 +28,10 @@
       asyncComponent: () => import("@/routes/poule_stats.svelte"),
       loadingComponent: Loader,
     }),
+    "/teams/:id": wrap({
+      asyncComponent: () => import("@/routes/team_stats.svelte"),
+      loadingComponent: Loader,
+    }),
     "/info": wrap({
       asyncComponent: () => import("@/routes/info.svelte"),
       loadingComponent: Loader,
@@ -59,7 +63,6 @@
       <a href="#/info" class="w-24 sm:py-3 sm:px-4 sm:w-auto"
         ><NavButton label="Info" Icon={schedule_icon} color={icon_color} /></a
       >
-      <!-- <a href="#/org" class="w-24 sm:py-3 sm:px-4 hidden mi:block sm:w-auto"><NavButton label="Organisatie" Icon={org_icon} color={icon_color}/></a> -->
     </nav>
   </div>
 

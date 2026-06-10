@@ -215,6 +215,39 @@ $num_games2 = count($games2);
 $court1_games = [];
 $court2_games = [];
 
+function distributeCourtGames(int $slots, int $minorGames, $minorPoule, $majorPoule): array {
+    $games = [];
+
+    if ($minorGames <= 0) {
+        return array_fill(0, $slots, $majorPoule);
+    }
+
+    $minorPositions = [];
+    for ($k = 0; $k < $minorGames; $k++) {
+        $position = (int) round($k * $slots / $minorGames);
+        if ($position >= $slots) {
+            $position = $slots - 1;
+        }
+
+        while (in_array($position, $minorPositions, true)) {
+            if ($position < $slots - 1) {
+                $position++;
+            } else {
+                $position--;
+            }
+        }
+
+        $minorPositions[] = $position;
+    }
+
+    sort($minorPositions);
+    for ($i = 0; $i < $slots; $i++) {
+        $games[] = in_array($i, $minorPositions, true) ? $minorPoule : $majorPoule;
+    }
+
+    return $games;
+}
+
 if ($num_games1 > $num_games2) {
     $total = count($games1) + count($games2);
 
@@ -226,18 +259,8 @@ if ($num_games1 > $num_games2) {
 
     echo "Court 1 num: " . $court1_num . " Court 2 num: " . $court2_num . " Carry over: " . $carry_over . " Insert int: " . $insert_int . "<br>";
 
-    for ($i = 0; $i < $court1_num; $i++) {
-        $court1_games[] = $poule1;
-        if ($i < $court2_games) {
-            $insert_index = floor($insert_int / 2);
-
-            if ($i % ($insert_int + 1) == $insert_index) {
-                $court2_games[] = $poule1;
-            } else {
-                $court2_games[] = $poule2;
-            }
-        }
-    }
+    $court1_games = array_fill(0, $court1_num, $poule1);
+    $court2_games = distributeCourtGames($court2_num, $num_games2, $poule2, $poule1);
 } elseif ($num_games1 < $num_games2) {
     $total = count($games1) + count($games2);
 
@@ -245,57 +268,14 @@ if ($num_games1 > $num_games2) {
     $court2_num = $total - $court1_num;
 
     $carry_over = $court1_num - $num_games1;
-
-    if ($num_games1 >= $carry_over) {
-        $insert_int = floor($num_games1 / $carry_over);
-        $acc_val = $num_games1 / $carry_over - $insert_int;
-        $insert_games1 = true;
-    } else {
-        $insert_int = floor($carry_over / $num_games1);
-        $acc_val = $carry_over / $num_games1 - $insert_int;
-        $insert_games1 = false;
-    }
+    $insert_int = $num_games1 > 0 ? floor($carry_over / $num_games1) : 0;
+    $acc_val = $num_games1 > 0 ? $carry_over / $num_games1 - $insert_int : 0;
+    $insert_games1 = $num_games1 >= $carry_over;
 
     echo "Court 1 num: " . $court1_num . " Court 2 num: " . $court2_num . " Carry over: " . $carry_over . " Insert int: " . $insert_int . " Acc val: " . $acc_val . "<br>";
 
-    $insert_int_acc = 0;
-    $insert_int_count = 0;
-    $insert_other = true;
-
-
-    for ($i = 0; $i < $court2_num; $i++) {
-        $court2_games[] = $poule2;
-        if ($i < $court1_games) {
-            if ($insert_other) {
-                if ($insert_games1) {
-                    $court1_games[] = $poule2;
-                } else {
-                    $court1_games[] = $poule1;
-                }
-
-                $insert_other = false;
-                $insert_int_count = 0;
-            } else {
-                $insert_int_count += 1;
-                $insert_int_acc += $acc_val;
-
-                if ($insert_games1) {
-                    $court1_games[] = $poule1;
-                } else {
-                    $court1_games[] = $poule2;
-                }
-
-                if ($insert_int_count >= $insert_int) {
-                    if ($insert_int_acc >= 1) {
-                        $insert_other = false;
-                        $insert_int_acc -= 1;
-                    } else {
-                        $insert_other = true;
-                    }
-                }
-            }
-        }
-    }
+    $court2_games = array_fill(0, $court2_num, $poule2);
+    $court1_games = distributeCourtGames($court1_num, $num_games1, $poule1, $poule2);
 } else {
     $court1_num = $num_games1;
     $court2_num = $num_games2;
@@ -344,8 +324,16 @@ for ($round = 0; $round < $max_games; $round++) {
 
     if ($round < $court1_num) {
         if ($court1_games[$round] == $poule1) {
+            if (!$pq_games1->valid()) {
+                header("HTTP/1.0 500 Internal Server Error");
+                die("No remaining games in queue for poule1 on court1 at round " . ($round + 1));
+            }
             $game1 = $pq_games1->extract();
         } else {
+            if (!$pq_games2->valid()) {
+                header("HTTP/1.0 500 Internal Server Error");
+                die("No remaining games in queue for poule2 on court1 at round " . ($round + 1));
+            }
             $game1 = $pq_games2->extract();
         }
     } {
@@ -356,18 +344,17 @@ for ($round = 0; $round < $max_games; $round++) {
             echo "PQ2 after: " . $pq_games2->valid() . "<br>";
 
             do {
-                if ($court2_games[$round] == $poule1 && !$pq_games1->valid()) {
-                    // Internal server error if no games left in queue
-                    header("HTTP/1.0 500 Internal Server Error");
-                    die("Error in scheduling");
-                } else if ($court2_games[$round] == $poule2 && !$pq_games2->valid()) {
-                    header("HTTP/1.0 500 Internal Server Error");
-                    die("Error in scheduling");
-                }
-
                 if ($court2_games[$round] == $poule1) {
+                    if (!$pq_games1->valid()) {
+                        header("HTTP/1.0 500 Internal Server Error");
+                        die("No remaining games in queue for poule1 on court2 at round " . ($round + 1));
+                    }
                     $rejectStack->push($pq_games1->extract());
                 } else {
+                    if (!$pq_games2->valid()) {
+                        header("HTTP/1.0 500 Internal Server Error");
+                        die("No remaining games in queue for poule2 on court2 at round " . ($round + 1));
+                    }
                     $rejectStack->push($pq_games2->extract());
                 }
             } while (

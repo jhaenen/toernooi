@@ -8,6 +8,8 @@ RewriteRule ^poules$ g_poules.php [L]
 RewriteRule ^poules/([0-9]+)$ g_poules.php?p=$1 [L]
 RewriteRule ^poules/([0-9]+)/stats$ g_poule_stats.php?p=$1
 
+RewriteRule ^teams/([0-9]+)/stats$ g_team_stats.php?id=$1 [L]
+
 RewriteRule ^stats$ g_stats.php [L]
 RewriteRule ^stats/([0-9]+)$ g_stats.php?p=$1 [L]
 

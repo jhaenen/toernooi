@@ -9,11 +9,18 @@
 
     function unauthorized() {
         header('HTTP/1.0 401 Unauthorized');
-        die(file_get_contents("html/login.html"));
+        $content = @file_get_contents(__DIR__ . "/html/login.html");
+        if ($content === false) {
+            http_response_code(500);
+            die("Failed to read login.html");
+        }
+        // Adjust paths for subdirectory deployment (avoid double-prefix)
+        $content = preg_replace('#(?<!/das)/admin/#', '/das/admin/', $content);
+        die($content);
     }
 
     if (isset($_SESSION['expires']) && time() <= $_SESSION['expires']) {
-        header("Location: /admin/");
+        header("Location: /das/admin/");
         die();
     }
 

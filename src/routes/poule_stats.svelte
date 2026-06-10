@@ -109,7 +109,7 @@
     <div class="flex flex-col items-center m-4"><!-- lg:items-start lg:text-left -->
         {#if loaded && !error}
             <!-- Title -->
-            <h1 class="text-[12vw] leading-none font-light text-center border-b-2 py-[5px] mi:text-5xl lg:py-5 lg:w-full lg:bg-white lg:sticky lg:top-0 sm:my-2 sm:border-b-0 sm:underline sm:underline-offset-[10px] sm:decoration-2" style={"text-decoration-color:" + poule.color + ";border-color:" + poule.color}>
+            <h1 class="text-[12vw] leading-none font-light text-center border-b-2 py-[5px] mi:text-5xl lg:py-5 lg:w-full lg:bg-white lg:sticky lg:top-0 lg:z-20 sm:my-2 sm:border-b-0 sm:underline sm:underline-offset-[10px] sm:decoration-2" style={"text-decoration-color:" + poule.color + ";border-color:" + poule.color}>
                 {poule.name}
             </h1>
 
@@ -122,7 +122,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col items-center lg:items-start gap-y-5 -z-10">
+                <div class="flex flex-col items-center lg:items-start gap-y-5">
                     <!-- Poule games -->
                     <h2 class="font-light text-3xl lg:w-full lg:bg-white lg:sticky lg:top-20 z-10">Wedstrijden</h2>
                     {#each games as game (game.id)}
