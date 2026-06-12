@@ -94,7 +94,7 @@
 
       <p class="mt-4 italic">
         Fair play staat voorop: plezier, sportiviteit en respect voor elkaar
-        zijn belangrijker dan winnen 😊
+        zijn belangrijker dan winnen <span class="not-italic">😊</span>
       </p>
 
       <div
