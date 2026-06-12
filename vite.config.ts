@@ -26,10 +26,9 @@ export default defineConfig({
       }),
       VitePWA({
         registerType: 'autoUpdate',
-        devOptions: {
-          enabled: false,
-        },
         workbox: {
+          skipWaiting: true,
+          clientsClaim: true,
           navigateFallbackDenylist: [/^\/admin/, /^\/api/, /^\/screen.html/],
           globPatterns: ["**/*.{js,css,html,svg}"],
         }
