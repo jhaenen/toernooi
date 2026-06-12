@@ -60,7 +60,7 @@
             <tbody>
                 {#each standings as team (team.id)}
                     <tr>
-                        <th class="px-2 text-left sticky left-0 bg-white border-r-2">{team.name}</th>
+                        <th class="px-2 text-left sticky left-0 bg-white border-r-2"><a href="#/teams/{team.id}">{team.name}</a></th>
                         <td class="px-2 font-black">{team.points}</td>
                         <td class="px-2">{team.played}</td>
                         <td class="px-2 bg-white" class:hidden={!details && !forceDetails}>{team.won}</td>

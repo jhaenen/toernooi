@@ -29,84 +29,73 @@
     <div
       class="overflow-hidden relative transition-[max-height] duration-300"
       class:max-h-64={preview}
-      class:max-h-[1848px]={!preview}
+      class:max-h-[2000px]={!preview}
     >
       <p>
-        De wedstrijden worden gespeeld volgens de reglementen van de Nederlandse
-        Basketball Bond, waarbij onderstaande afwijkende regels gelden:
+        De wedstrijden worden gespeeld volgens de regels van het
+        Familietoernooi Basketbal:
       </p>
-      <ol class="list-decimal list-inside my-2 mx-4">
-        <li class="my-2">
-          De wedstrijden duren 15 minuten doorlopende tijd. Na de wedstrijd is
-          er 5 minuten tijd voor wisselen, in deze tijd kan je ook nog even met
-          je team warmlopen. (zorg dat je op tijd klaar staat met je hele team)
+      <ul class="list-disc list-inside my-2 mx-4 space-y-2">
+        <li>
+          Wedstrijden duren <strong>15 minuten doorlopende tijd</strong>. Daarna
+          is er <strong>5 minuten wisseltijd</strong>. Zorg dat je team op tijd
+          klaarstaat.
         </li>
-        <li class="my-2">
-          De speeltijd is doorlopend en wordt centraal geregeld door de
-          wedstrijdleiding. De wedstrijd is afgelopen na het signaal van de
-          wedstrijdleiding en niet van de scheidsrechter!
+        <li>
+          De tijd wordt centraal geregeld. De wedstrijd eindigt bij het
+          eindsignaal.
         </li>
-        <li class="my-2">
-          Een fout op een doelende speler zonder score: geen vrije worp maar + 1
-          punt en het aanvallende team houdt de bal en neemt de bal in bij de
-          achterlijn.
+        <li>
+          Fout op een doelende speler <strong>zonder</strong> score: + 2 of 3
+          punten. Geen vrije worpen. Daarna balbezit voor de tegenstander.
         </li>
-        <li class="my-2">
-          Bij een fout op een doelende speler mét score: géén (bonus)vrije
-          worpen, wel + 1 punt (dus 3 of 4 in totaal). De verdedigende partij
-          neemt daarna de bal in.
+        <li>
+          Fout op een doelende speler <strong>met</strong> score: score telt + 1
+          extra punt. Geen bonusvrije worp. Daarna balbezit voor de
+          tegenstander.
         </li>
-        <li class="my-2">
-          Als een team 6 teamfouten heeft krijgt de tegenstander bij elk
-          volgende fout + 1 punt en balbezit. (Dit geldt niet voor aanvallende
-          fouten)
+        <li>
+          Wisselen mag alleen bij een dood spelmoment. In de
+          <strong>laatste minuut</strong> mag <strong>niet</strong> meer worden
+          gewisseld.
         </li>
-        <li class="my-2">
-          Wissels mogen alleen bij een dood spelmoment en moet via de
-          scheidsrechter worden aangevraagd. De laatste minuut mag er niet meer
-          gewisseld worden.
+        <li>
+          Dames mogen <strong>niet</strong> door heren geblokt worden (wel door
+          dames).
         </li>
-        <li class="my-2">
-          Winnaar krijgt 2 punten, bij gelijkspel ieder 1 punt, verliezer 0
-          punten
+        <li>Winst = 2 punten, gelijk = 1 punt, verlies = 0 punten.</li>
+        <li>
+          Bij de <strong>Mini</strong> en <strong>Competitieve</strong> poules is
+          de poulestand de eindstand. Bij de <strong>Recreatieve</strong> poule
+          spelen de beste 4 teams finalerondes.
         </li>
-        <li class="my-2">
-          Eindstanden in de poule: Indien 2 teams gelijk eindigen in de poule is
-          de in navolgende volgorde de beslissing:
-          <ol class="list-[lower-alpha] list-inside my-2 mx-4">
-            <li class="my-2">
-              het doelsaldo van alle wedstrijden; wanneer deze ook gelijk is…
-            </li>
-            <li class="my-2">
-              het aantal gescoorde doelpunten; wanneer deze ook gelijk is...
-            </li>
-            <li class="my-2">
-              een serie van 3 vrije worpen door verschillende spelers/speelsters
-              uit een team.
-            </li>
-          </ol>
+        <li>
+          Bij gelijke eindstand in de finalerondes schieten beide teams 1 vrije
+          worp voor de winst totdat 1 van de teams wel heeft geraakt (winnaar)
+          en het andere team niet. Spelers moeten rouleren voor het nemen van de
+          vrije worpen.
         </li>
-        <li class="my-2">
-          In geval van meningsverschillen of omissies beslist de
-          wedstrijdleiding.
-        </li>
-        <li class="my-2">
-          Protesten? Zijn niet nodig en waar dit wel nodig is, treedt regel 9 in
-          werking!
-        </li>
-        <p class="my-2 -mx-4">Extra regels mini's:</p>
-        <li class="my-2">
-          De bal mag bij een schotpoging niet geblockt worden.
-        </li>
-        <li class="my-2">
-          De bal mag niet bij een andere speler uit zijn handen worden
-          getrokken.
-        </li>
-        <li class="my-2">
-          Alle scores tellen voor 2 punten. (Er zijn dus geen 3 punters
-          mogelijk)
-        </li>
+      </ul>
+
+      <p class="font-bold mt-4">Bij gelijke stand in de poule:</p>
+      <ol class="list-decimal list-inside my-2 mx-4 space-y-2">
+        <li>Doelsaldo</li>
+        <li>Meest gescoorde punten</li>
+        <li>Serie van drie vrije worpen, door drie verschillende spelers</li>
+        <li>Bij onduidelijkheden beslist de wedstrijdleiding.</li>
       </ol>
+
+      <p class="font-bold mt-4">Extra regels U12 / Miniveld:</p>
+      <ol class="list-decimal list-inside my-2 mx-4 space-y-2">
+        <li>Schotpogingen mogen niet worden geblokt.</li>
+        <li>De bal mag niet uit iemands handen worden getrokken.</li>
+        <li>Alle scores tellen voor 2 punten (geen driepunters).</li>
+      </ol>
+
+      <p class="mt-4 italic">
+        Fair play staat voorop: plezier, sportiviteit en respect voor elkaar
+        zijn belangrijker dan winnen 😊
+      </p>
 
       <div
         class="absolute bottom-0 left-0 w-full text-center m-0 h-3/4 z-[5] transition-opacity duration-300"
