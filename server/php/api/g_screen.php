@@ -142,7 +142,27 @@
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            $poule_index = $index_map[$row["poule_id"]];
+            // Ignore hidden teams that use poule 0
+            $poule_id = intval($row["poule_id"]);
+            if ($poule_id === 0) {
+                continue;
+            }
+
+            // Ensure the poule exists in the index map. If not, create a fallback poule
+            // entry so we can safely append standings without throwing errors.
+            if (!isset($index_map[$poule_id])) {
+                $response->stats[] = new \stdClass();
+                $poule_index = count($response->stats) - 1;
+
+                $response->stats[$poule_index]->id = $poule_id;
+                $response->stats[$poule_index]->name = "";
+                $response->stats[$poule_index]->color = "";
+                $response->stats[$poule_index]->standings = array();
+
+                $index_map[$poule_id] = $poule_index;
+            } else {
+                $poule_index = $index_map[$poule_id];
+            }
 
             $response->stats[$poule_index]->standings[] = new \stdClass();
             $index = count($response->stats[$poule_index]->standings) - 1;
