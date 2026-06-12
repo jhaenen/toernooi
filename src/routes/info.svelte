@@ -51,16 +51,6 @@
         ></iframe>
       {/if}
 
-      <!-- Contact -->
-      <h2 class="mt-5 text-[8vw] leading-none mi:text-3xl">Contact</h2>
-      <div>
-        E-mail: <a
-          href="mailto:toernooi.dasdelft@gmail.com?subject=Vragen%20familietoernooi%202022"
-          class="text-primary underline">toernooi.dasdelft@gmail.com</a
-        >
-      </div>
-    </div>
-
     <!-- Acknowledgements -->
     <div
       class="w-full text-center text-sm text-slate-800 border-t-2 pt-2 mt-8 sm:mt-5"
