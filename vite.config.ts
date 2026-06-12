@@ -10,33 +10,39 @@ function resolveDir(relativePath: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    build: {
-      rollupOptions: {
-        input: {
-          main: resolveDir('index.html'),
-          'screen.html': resolveDir('screen.html'),
-        },
-      }
-    },
-    plugins: [
-      svelte(),
-      svelteSVG({
-        svgoConfig: {}, // See https://github.com/svg/svgo#configuration
-        requireSuffix: true, // Set false to accept '.svg' without the '?component'
-      }),
-      VitePWA({
-        registerType: 'autoUpdate',
-        workbox: {
-          skipWaiting: true,
-          clientsClaim: true,
-          navigateFallbackDenylist: [/^\/admin/, /^\/api/, /^\/screen.html/],
-          globPatterns: ["**/*.{js,css,html,svg}"],
-        }
-      }),
-    ],
-    resolve: {
-      alias: {
-        '@': resolveDir('./src'),
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolveDir('index.html'),
+        'screen.html': resolveDir('screen.html'),
       },
+    }
+  },
+  plugins: [
+    svelte(),
+    svelteSVG({
+      svgoConfig: {}, // See https://github.com/svg/svgo#configuration
+      requireSuffix: true, // Set false to accept '.svg' without the '?component'
+    }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      workbox: {
+        skipWaiting: true,
+        clientsClaim: true,
+        cleanupOutdatedCaches: true,
+        navigateFallbackDenylist: [/^\/admin/, /^\/api/, /^\/screen.html/],
+
+        /*
+         * Do not precache HTML.
+         * HTML must always be checked from the network after deployment.
+         */
+        globPatterns: ["**/*.{js,css,svg,png,ico,json}"],
+      }
+    }),
+  ],
+  resolve: {
+    alias: {
+      '@': resolveDir('./src'),
     },
+  },
 })

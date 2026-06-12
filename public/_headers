@@ -1,3 +1,9 @@
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/screen.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /sw.js
   Cache-Control: no-store, no-cache, must-revalidate
 

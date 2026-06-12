@@ -72,8 +72,12 @@
     // Next games — earliest unplayed games
     $sql = "SELECT * FROM toernooi_wed_name
             WHERE score1 = 0 AND score2 = 0
-            ORDER BY time ASC, court_num ASC
-            LIMIT 4";
+            AND time = (
+                SELECT MIN(time)
+                FROM toernooi_wed_name
+                WHERE score1 = 0 AND score2 = 0
+            )
+            ORDER BY court_num ASC";
 
     $response->next = array();
 
